@@ -7,69 +7,18 @@
   <title>Global Pandemic</title>
   <link href="styles/style.css" rel="stylesheet" type="text/css">
   <script src="scripts/jquery.min.js" type="text/javascript"></script>
+    
 </head>
 
-<!--网页的淡入淡出效果 START-->
-<style>
-  @keyframes fadein{
-      0%{opacity: 0;
-           }
-      100%{
-          opacity: 1;
-  
-      }
-  }
-  @-webkit-keyframes fadein{
-          0%{opacity: 0;
-           }
-      100%{
-          opacity: 1;
-  
-      }
-  }
-  @-moz-keyframes fadein{
-          0%{opacity: 0;
-           }
-      100%{
-          opacity: 1;
-  
-      }
-  }
-  @-o-keyframes fadein{
-          0%{opacity: 0;
-           }
-      100%{
-          opacity: 1;
-  
-      }
-  }
-  @-ms-keyframes fadein{
-          0%{opacity: 0;
-           }
-      100%{
-          opacity: 1;
-  
-      }
-  }
-  body{
-      animation:fadein 5s linear 1;
-      -webkit-animation:fadein 5s linear 1;
-      -moz-animation:fadein 5s linear 1;
-      -o-animation:fadein 5s linear 1;
-      -ms-animation:fadein 5s linear 1;
-  }
-  </style>
-<!--网页的淡入淡出效果 END-->
-
-
   <!-----HEADER START----->
-<body>
-  <div class="header" id="elmtz">
-      <!-----logo 需要点击后渐现，未完成----->
-      <div class="top_logo" id="logo" ></div>
-
+<body ondragstart="window.event.returnValue=false" oncontextmenu="window.event.returnValue=false" onselectstart="event.returnValue=false">
+  <div class="header" id="container">
+    <div class="topcn" style="font:40px/36px 'microsoft yahei'; color:rgb(150, 8, 8);text-align:center;">
+      <p>&nbsp;</p>
+      <h1 id="h1">Global Pandemic</h1>
+    </div>
       <div class="nav">
-        <button class="gv" >标准</button>
+        <button class="gv">标准</button>
         <button class="gv">节点</button>
         <button class="gv">寄语</button>
      </div>
@@ -81,14 +30,10 @@
     <!-----HEADER END----->
     
     
-    <!--音乐以及音效 START--><!--需要考虑谷歌浏览器不支持自动播放-->
-      <audio controls="false" autoplay="autoplay" autostart="true" class="audio">
-            <source src="styles/music/background.mp3" type="audio/mp3"> 
-            <source src="styles/music/background.ogg" type="audio/ogg"> 
-            <source src="styles/music/background.acc" type="audio/acc"> 
-        </audio>
+    <!--音乐以及音效 START-->
     <!--音乐以及音效 END-->
-    
+
+
     
     <script>
       //宇宙特效(借鉴，可修改)
@@ -195,18 +140,6 @@
       
       animation()
       </script>
-
-<script type="text/javascript">
-  document.onclick = function(e){//设置整个网页的单击事件
-    e = e || window.event;//为了兼容。
-    var target = e.target || e.srcElement;//用来点击的对象。为了兼容这样写。
-    if (target.className == "canvaszz"){//如果点击的对象，class为最外层的canvaszz，那么进行下一个事件。
-      //渐现显示网站logo，还没完成
-    }  
-  }
-</script>
-    
-    
-    
+    <script src="scripts/bootstrapmb.com.js"></script>
     </body>
     </html>

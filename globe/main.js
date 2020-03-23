@@ -1,5 +1,5 @@
 // Where to put the globe?
-var container = document.getElementById( 'container' );
+var container = document.getElementById( 'globe' );
 
 // Make the globe
 var globe = new DAT.Globe( container );

@@ -22,6 +22,7 @@ DAT.Globe = function(container, opts) {
     return c;
   };
   var imgDir = opts.imgDir || '/EL-programming/globe/';
+  //var imgDir = opts.imgDir || '/globe/';
 
   var Shaders = {
     'earth' : {
@@ -333,10 +334,15 @@ DAT.Globe = function(container, opts) {
     }
   }
 
+  // function onWindowResize( event ) {
+  //   camera.aspect = container.offsetWidth / container.offsetHeight;
+  //   camera.updateProjectionMatrix();
+  //   renderer.setSize( container.offsetWidth, container.offsetHeight );
+  // }
   function onWindowResize( event ) {
-    camera.aspect = container.offsetWidth / container.offsetHeight;
+    camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize( container.offsetWidth, container.offsetHeight );
+    renderer.setSize( window.innerWidth, window.innerHeight );
   }
 
   function zoom(delta) {

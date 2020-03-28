@@ -21,9 +21,9 @@ onselectstart="event.returnValue=false">
     
     
   <div class="nav" style="z-index:860">
-      <button class="gv" onclick="loadingfunction()">标准</button>
-      <button class="gv">节点</button>
-      <button class="gv">寄语</button>
+      <button class="gv" onclick="jumpToMode1()">标准</button>
+      <button class="gv" onclick="jumpToMode2()">节点</button>
+      <button class="gv" onclick="jumpToMode3()">寄语</button>
   </div>
     
   <div class="canvaszz"> </div>
@@ -41,8 +41,14 @@ onselectstart="event.returnValue=false">
   <!--音乐以及音效 START-->
   <!--音乐以及音效 END-->
 <script>
-  function loadingfunction() {
+  function jumpToMode1() {
     window.location.replace('loading.html')
+  }
+  function jumpToMode2() {
+    window.location.replace('mode2.html')
+  }
+  function jumpToMode3() {
+    window.location.replace('comment/demo.html')
   }
 </script>
 

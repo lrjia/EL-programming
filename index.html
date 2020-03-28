@@ -13,26 +13,26 @@
 <!-----HEADER START----->
 
 <body ondragstart="window.event.returnValue=false" oncontextmenu="window.event.returnValue=false"
-  onselectstart="event.returnValue=false">
-  <div class="header" id="container" >
-    <div class="topcn" style="z-index:860; font:40px/36px 'microsoft yahei'; color:rgb(150, 8, 8);text-align:center;">
-      <p>&nbsp;</p>
+onselectstart="event.returnValue=false">
+<div class="header" id="container" >
+  <div class="topcn" >
       <h1 id="h1">Global Pandemic</h1>
-    </div>
+  </div>
     
     
-    <div class="nav" style="z-index:860">
-      <button class="gv">标准</button>
-      <button class="gv">节点</button>
-      <button class="gv">寄语</button>
-    </div>
+  <div class="nav" style="z-index:860">
+      <button class="gv" onclick="jumpToMode1()">标准</button>
+      <button class="gv" onclick="jumpToMode2()">节点</button>
+      <button class="gv" onclick="jumpToMode3()">寄语</button>
+  </div>
     
-    <div class="canvaszz"> </div>
-    <canvas id="canvas"></canvas>
+  <div class="canvaszz"> </div>
+  <canvas id="canvas"></canvas>
+  <script src="scripts/bootstrapmb.com.js"></script>
 
     <!-- 球模型在这里 -->
-    <div style="position:absolute;left:0;top:0;z-index:850;" id="globe"></div>
-  </div>
+  <div style="position:absolute;left:0;top:0;z-index:850;" id="globe"></div>
+</div>
   
 
   <!-----HEADER END----->
@@ -40,18 +40,22 @@
 
   <!--音乐以及音效 START-->
   <!--音乐以及音效 END-->
+<script>
+  function jumpToMode1() {
+    window.location.replace('loading.html')
+  }
+  function jumpToMode2() {
+    window.location.replace('mode2.html')
+  }
+  function jumpToMode3() {
+    window.location.replace('comment/demo.html')
+  }
+</script>
 
 
-  <!-- 球模型代码 -->
-  <script type="text/javascript" src="globe/Detector.js"></script>
-  <script type="text/javascript" src="globe/three.min.js"></script>
-  <script type="text/javascript" src="globe/Tween.js"></script>
-  <script type="text/javascript" src="globe/globe.js"></script>
-  <script src="globe/main.js"></script>
 
-  <!-- 我把你的代码放到main.js里了 -->
+  <!-- 特效的script -->
   <script src="scripts/main.js"></script>
-  <script src="scripts/bootstrapmb.com.js"></script>
 </body>
 
 </html>

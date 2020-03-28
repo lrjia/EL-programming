@@ -1,19 +1,39 @@
 @import "fadein.css";/*淡入*/
 
-body {margin:0 auto;overflow:hidden;} 
+
+body {
+    margin:0 auto;
+    overflow:hidden;
+    
+} 
 
 .header{
 	margin:0 auto;
 	width:100%;
-	height:auto;
+    height:890px;
 	background-color:rgb(0, 0, 0);
 	position:relative;
   }
+
+.header	.topcn{
+    z-index:860;
+    font-size:40px;
+    font-family:Arial;
+    color:rgb(150, 8, 8);
+    text-align:center;
+    width: auto;
+    top:200px;
+    left:50%;
+    margin-left: -445px;
+    position:absolute;
+
+  }
+
 .header canvas {
-  width:100%;height:auto;
-  display:inline-block;vertical-align:baseline
-  position:relative;
-  z-index:-1;
+  width:100%;
+    height:890px;
+  display:inline-block;
+
   }
 
 .header .canvaszz{  /*将星空设为背景图片，调整不透明度使显现宇宙特效*/
@@ -29,21 +49,13 @@ body {margin:0 auto;overflow:hidden;}
   }
 
   
-  .header	.topcn{
-    width: 980px;
-    top:200px;
-    left: 50%;
-    margin-left: -490px;
-    position:absolute;
-    z-index:20;
-  }
   
   
   h1{
-      font: 2.75em;
       font-weight: 400;
-      letter-spacing: 0.35em;
+      letter-spacing: 0.1em;
       text-shadow: 0 0 25px rgba(254,254,255,0.85);
+      
   }
   
   
@@ -133,12 +145,17 @@ body {margin:0 auto;overflow:hidden;}
       }
 
       .header .nav{
-        width:804px;
-        height:auto;
+        width:auto;
         position:absolute;
-        z-index:30;
-        top:420px;
-        left: 70%;
-        margin-left: -400px;
+        top:400px;
+        left:50%;
+          margin-left: -137.46px;
+          text-align:center;
         }
-       
+
+
+
+
+
+
+

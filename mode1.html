@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,32 +8,52 @@
 
 </head>
 
-<!-----HEADER START----->
+
 
 <body ondragstart="window.event.returnValue=false" oncontextmenu="window.event.returnValue=false"
-      onselectstart="event.returnValue=false">
-<div class="header" id="container" >
+    onselectstart="event.returnValue=false">
     <!-- 球模型在这里 -->
-    <div style="position:absolute;left:0;top:0;z-index:850;" id="globe"></div>
-    <button style="z-index: auto">返回</button>
-</div>
+    <div style="position:absolute;left:0;top:0;z-index: 800;" id="globe"></div>
+    <div style="position:absolute;z-index: 900;">
+        <button style="z-index: auto">返回</button>
+        <div id="currentInfo">
+            <span id="year1990" class="year">1990</span>
+            <span id="year1995" class="year">1995</span>
+            <span id="year2000" class="year">2000</span>
+        </div>
+        <div id="draggable">
+            <p>水平拖动时间轴</p>
+        </div>
+    </div>
+    <!-- import the necessary files -->
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    <style>
+        #draggable {
+            width: 120px;
+            height: 45px;
+            padding: 0.5em;
+            border: 1px solid;
+        }
+    </style>
 
 
-<!-----HEADER END----->
-
-<script>
-    function returnToMenu() {
-        window.location.replace('index.html')
-    }
-</script>
 
 
-<!-- 球模型代码 -->
-<script type="text/javascript" src="globe/Detector.js"></script>
-<script type="text/javascript" src="globe/three.min.js"></script>
-<script type="text/javascript" src="globe/Tween.js"></script>
-<script type="text/javascript" src="globe/globe.js"></script>
-<script src="globe/main.js"></script>
+        <script>
+            function returnToMenu() {
+                window.location.replace('index.html')
+            }
+        </script>
+
+
+        <!-- 球模型代码 -->
+        <script type="text/javascript" src="globe/Detector.js"></script>
+        <script type="text/javascript" src="globe/three.min.js"></script>
+        <script type="text/javascript" src="globe/Tween.js"></script>
+        <script type="text/javascript" src="globe/globe.js"></script>
+        <script src="globe/main.js"></script>
 </body>
 
 </html>

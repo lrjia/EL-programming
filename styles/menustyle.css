@@ -1,0 +1,352 @@
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    background-image: url(images/spaceship.jpg);
+    background-size: 100%;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+}
+/* 中心点 */
+.centerCircle{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    background: #000000;
+    border-radius: 50%;
+    left: 20%;
+    top: 40%;
+    transition: all .3s ease-in;
+    box-shadow: 0 0 60px 10px  red;
+    transform-style: preserve-3d;
+    perspective: 800px;
+    transform: skewX(20deg) rotateX();
+}
+
+/* 内圈第一圈控制 */
+.inset_circle_one{
+    transform: translate3d(-80px, 0, 0);
+}
+
+
+/* 内圈样式 */
+.inset_one{
+    height: 20px;
+    width: 10px;
+    background: #000000;
+    position: absolute;
+    border-radius: 2px;
+    transform-origin: 90px 0;
+    box-shadow: 0 0 60px 0 red;
+    transition: .2s;
+}
+
+/* 第二圈内圈控制 */
+.inset_circle-two{
+    transform: translate3d(10px,-200px ,0);
+}
+
+/* 第二圈内圈样式 */
+.inset_two{
+    height: 45px;
+    width: 5px;
+    background: #f00;
+    position: absolute;
+    border-radius: 5px;
+    box-shadow: 0 0 50px 0 #f00;
+    transform-origin: 0 200px;
+}
+
+/* 外圈控制第一半圈 */
+.out_circle{
+    transform: rotate(-85deg) translate3d(10px, -260px, 0);
+}
+
+/* 外圈第一样式半圈 */
+.out_one{
+    height: 40px;
+    width: 5px;
+    position: absolute;
+    background: cyan;
+    border-radius: 5px;;
+    transform-origin: 0 260px;
+    animation: 2s infinite linear abc alternate-reverse;
+}
+
+
+@keyframes abc {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+/* 外圈第二外半圈圆控制 */
+.out_circle_two{
+    transform: rotate(120deg) translate3d(-10px, -230px, 0);
+}
+
+/* 外圈第二外半圈圆样式 */
+.out_two,
+.out_three{
+    height: 8px;
+    width: 8px;
+    background: cyan;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 50px  cyan;
+    transform-origin: 0 240px;
+}
+.out_two{
+    animation: 5s infinite linear gg alternate-reverse;
+    background: #08F7A7;
+    filter: hue-rotate(0);
+}
+
+@keyframes gg {
+    0%{
+        filter: hue-rotate(0);
+    }
+    50%{
+        filter: hue-rotate(180deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+
+
+
+.out_three{
+    animation: abe 3s ease infinite;
+}
+
+
+
+@keyframes abe {
+    0%{
+        opacity: 1;
+        box-shadow: 0 0 1px 1px cyan;
+    }
+    50%{
+        opacity: 1;
+        box-shadow: 0 0 0 0 cyan;
+    }
+    100%{
+        opacity: 0;
+        box-shadow: 0 0 0 0 cyan;
+    }
+}
+
+/* 外圈第三外半圈圆控制 */
+.out_circle_three{
+    transform: rotate(115deg) translate3d(10px, -260px, 0);
+}
+
+/* 外圈第三圈样式 */
+.out_three{
+    box-shadow: 0 0 50px 0  cyan;
+    transform-origin: 0 260px;
+}
+
+
+
+/* 选项卡 */
+.one{
+    height: 30px;
+    width: 280px;
+    background: transparent;
+    position: absolute;
+    border-radius:  100px;
+    border: 2px solid #f00;
+    left: 364px;
+    top: -10px;
+    cursor: pointer;
+    transform-origin: -350px 0;
+    transition: .7s ease-in-out .2s;
+}
+
+.one:hover{
+    background: red;
+}
+
+.one:active{
+    animation: one .3s ease-in forwards;
+}
+
+@keyframes one {
+    0%{
+        opacity: .3;
+    }
+    25%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    75%{
+        opacity: .2;
+    }
+    100%{
+        opacity: 1;
+        background: #f00;
+    }
+}
+
+.txtColor{
+    color: #fff;
+    background: -webkit-linear-gradient(left, #fe930d, #08fa13, #119df8, #161b63, #06FD45,#00FFD7,#DBF811, #FE092C, #FA09F2, #09CEF8, #09FCF4, #06FD45,#00FFD7,#DBF811);
+    background: -o-linear-gradient(left, #fe930d, #08fa13, #119df8, #161b63, #06FD45,#00FFD7,#DBF811, #FE092C, #FA09F2, #09CEF8, #09FCF4, #06FD45,#00FFD7,#DBF811);
+    background: linear-gradient(to right, #fe930d, #08fa13, #119df8, #161b63, #06FD45,#00FFD7,#DBF811, #FE092C, #FA09F2, #09CEF8, #09FCF4, #06FD45,#00FFD7,#DBF811);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: 2s cr linear infinite;
+}
+
+
+
+@keyframes cr {
+    0%{
+        background-position: 0 0;
+    }
+
+    100%{
+        background-position: 200% 100%;
+    }
+}
+
+
+.one span:nth-child(1){
+    color: #fff;
+    font-size: 20px;
+    margin-left: 10px;
+    letter-spacing: 2px;
+    transition: .3s linear;
+    transition-delay: .3s;
+    position: absolute;
+}
+
+.one:hover.one span:nth-child(1){
+    margin-left: 100%;
+    font-size: 0px;
+}
+
+
+
+.one::after,
+.one::before{
+    position: absolute;
+    content: '';
+    transition:all .5s ease-in;
+}
+
+.one::after{
+    width: 30px;
+    height: 2px;
+    background: #000;
+    transform: skew(30deg);
+    top: -2px;
+    left: 0;
+}
+
+
+.one:hover::after{
+    left: 80%;
+}
+
+
+.one::before{
+    width: 20px;
+    height: 2px;
+    background: #000;
+    transform: skew(10deg);
+    right: 12px;
+    bottom: -2px;
+}
+
+.one:hover::before{
+    right: 80%;
+}
+
+.one>.line{
+    position: absolute;
+    background: #f00;
+    display: block;
+    height: 2px;
+    width: 350px;
+    top: 13px;
+    left: -350px;
+    transition: .5s ease-in;
+}
+
+
+.line::after{
+    position: absolute;
+    content: '';
+    transition: 1s ease-in-out;
+    width: 0;
+    height: 0;
+}
+
+
+.one:hover .line::after{
+    animation:ttt .5s ease-in forwards;
+}
+
+@keyframes ttt {
+    0%{
+        width: 0;
+        height: 0;
+        background: cyan;
+        box-shadow: 0 0 0 0 cyan;
+    }
+
+    25%{
+        width: 100px;
+        height: 2px;
+        background: cyan;
+        box-shadow: 0 0 10px 2px cyan;
+    }
+    50%{
+        width: 300px;
+        height: 2px;
+        background: cyan;
+        box-shadow: 0 0  30px 10px cyan;
+    }
+    75%{
+        width: 500px;
+        height: 2px;
+        background: cyan;
+        box-shadow: 0 0  60px 10px cyan;
+    }
+    100%{
+        width: 770px;
+        height: 2px;
+        background: cyan;
+        box-shadow: 0 0  30px 2px cyan;
+    }
+}
+
+
+.disTxt{
+    color: #fff;
+    position: absolute;
+    line-height:30px;
+    right: 0px;
+    transition: .3s ease-in;
+    transition-delay: .3s;
+    opacity: 0;
+}
+
+.one:hover .disTxt{
+    right: -82px;
+    opacity: 1;
+    letter-spacing: 3px;
+}

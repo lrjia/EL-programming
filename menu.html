@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>Global Pandemic menu</title>
+	<link href="styles/menustyle.css" rel="stylesheet" type="text/css">
+	<script src="scripts/menu.js" type="text/javascript"></script>
+</head>
+<body>
+
+	<div class="centerCircle">
+		<!-- 第一圈内圈 -->
+		<div class="inset_circle_one"></div>
+
+		<!-- 第二圈内圈 -->
+		<div class="inset_circle-two"></div>
+
+		<!-- 第三圈外半圈 -->
+		<div class="out_circle"></div>
+
+ 		<!-- 第三圈外半圈圆 -->
+		<div class="out_circle_two"></div>
+
+		<!-- 第三圈外半圈多 -->
+		<div class="out_circle_three"></div>
+
+ 		<!-- 选项卡 -->
+		<div id="more">
+			<div class="one" onclick="jumpToMode1()">
+				<span class="txtColor">标准模式</span>
+				<span class="line"></span>
+				<span class="disTxt">纵观</span>
+			</div>
+			<div class="one" onclick="jumpToMode2()">
+				<span class="txtColor">节点模式</span>
+				<span class="line"></span>
+				<span class="disTxt">细察</span>
+			</div>
+			<div class="one" onclick="jumpToMode3()">
+				<span class="txtColor">寄语模式</span>
+				<span class="line"></span>
+				<span class="disTxt">倾心</span>
+			</div>
+		</div>
+
+	</div><!-- 父级结束 -->
+	<script>
+		function jumpToMode1() {
+		  window.location.replace('loading.html')
+		}
+		function jumpToMode2() {
+		  window.location.replace('mode2.html')
+		}
+		function jumpToMode3() {
+		  window.location.replace('comment/demo.html')
+		}
+	  </script>
+</body>
+</html>

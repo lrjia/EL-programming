@@ -7,6 +7,7 @@
   <title>Global Pandemic</title>
   <link href="styles/style.css" rel="stylesheet" type="text/css">
   <script src="scripts/jquery.min.js" type="text/javascript"></script>
+  <script src="scripts/event.js" type="text/javascript"></script>
 
 </head>
 
@@ -19,17 +20,26 @@ onselectstart="event.returnValue=false">
       <h1 id="h1">Global Pandemic</h1>
   </div>
     
-    
-  <div class="nav" style="z-index:860">
-      <button class="gv" onclick="jumpToMode1()">标准</button>
-      <button class="gv" onclick="jumpToMode2()">节点</button>
-      <button class="gv" onclick="jumpToMode3()">寄语</button>
+  <div align="center" class="tip" onclick=testfunction() >
+    <span class="tipcontent" id="tip">click to continue</span>
   </div>
+
+    <div class="showimg" id="fade">
+      <img src="styles/images/alienspeaking.png">
+    </div>
+    
+    <div class="showimg1" id="fade1">
+      <img src="styles/images/alienspeaking2.png">
+    </div>
+
+  
     
   <div class="canvaszz"> </div>
   <canvas id="canvas"></canvas>
   <script src="scripts/bootstrapmb.com.js"></script>
 
+
+  
     <!-- 球模型在这里 -->
   <div style="position:absolute;left:0;top:0;z-index:850;" id="globe"></div>
 </div>
@@ -40,22 +50,41 @@ onselectstart="event.returnValue=false">
 
   <!--音乐以及音效 START-->
   <!--音乐以及音效 END-->
-<script>
-  function jumpToMode1() {
-    window.location.replace('loading.html')
-  }
-  function jumpToMode2() {
-    window.location.replace('mode2.html')
-  }
-  function jumpToMode3() {
-    window.location.replace('comment/demo.html')
-  }
-</script>
+  <script>
+    var flag=0
+    function testfunction()
+    {
+      if(flag==0)
+      {
+        btnIn()
+        flag=1
+        return
+      }
+      if(flag==1)
+      {
+        btnOut()
+        flag=2
+        return
+      }
+      if(flag==2)
+      {
+        btnIn1()
+        flag=3
+        return
+      }
+      if(flag==3)
+      {
+        window.location.replace('menu.html')
+  
+      }
+    }
+  </script>
+
 
 
 
   <!-- 特效的script -->
-  <script src="scripts/main.js"></script>
+<script src="scripts/main.js"></script>
 </body>
 
 </html>

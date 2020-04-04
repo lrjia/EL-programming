@@ -17,17 +17,59 @@ body {
 
 .header	.topcn{
     z-index:860;
-    font-size:40px;
-    font-family:Arial;
+    font-size:80px;
+    font-family: fantasy;
     color:rgb(150, 8, 8);
     text-align:center;
     width: auto;
-    top:200px;
-    left:50%;
+    top:60px;
+    left:36%;
     margin-left: -445px;
     position:absolute;
 
   }
+
+  .header .tip
+{
+  position:absolute;
+  position:fixed !important;
+  z-index:99;
+  top:0px;
+  left: -5%;
+  width:100%;
+  text-align:center;
+}
+.header .tip .tipcontent
+{
+    border:1px solid #FFF;
+    font-size:30px;
+    color: rgb(255, 255, 255);
+    padding:5px;
+    cursor:pointer;
+    border-radius:5px;
+}
+.header .showimg
+{
+    position:absolute;
+    position:fixed !important;
+    z-index:99;
+    bottom:0px;
+    width:100%;
+    text-align: right;
+    opacity: 0;
+}
+.header .showimg1
+{
+    position:absolute;
+    position:fixed !important;
+    z-index:97;
+    bottom:0px;
+    width:100%;
+    text-align: right;
+    opacity: 0;
+
+}
+
 
 .header canvas {
   width:100%;
@@ -144,14 +186,7 @@ body {
           opacity: 1;
       }
 
-      .header .nav{
-        width:auto;
-        position:absolute;
-        top:400px;
-        left:50%;
-          margin-left: -137.46px;
-          text-align:center;
-        }
+
 
 
 

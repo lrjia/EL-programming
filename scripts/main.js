@@ -8,7 +8,7 @@ var canvas = document.getElementById('canvas'),
   hue = 217,
   stars = [],
   count = 0,
-  maxStars = 1000;//星星数量
+  maxStars = 1200;//星星数量
 
 var canvas2 = document.createElement('canvas'),
   ctx2 = canvas2.getContext('2d');

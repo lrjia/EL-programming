@@ -12,6 +12,7 @@
 
 <body ondragstart="window.event.returnValue=false" oncontextmenu="window.event.returnValue=false"
     onselectstart="event.returnValue=false">
+    <p>加载中。。。。。。。。</p>
     <!-- 球模型在这里 -->
     <div style="position:absolute;left:0;top:0;z-index: 800;" id="globe"></div>
     <div style="position:absolute;z-index: 900;">
@@ -42,6 +43,9 @@
 
 
     <script>
+        window.onload=function(){
+            window.document.body.removeChild(window.document.body.children[0]);
+        }
         function returnToMenu() {
             window.location.replace('index.html')
         }

@@ -28,3 +28,33 @@ function is_valid(){
         return true;
     }
 }
+
+//进度条（伪）
+$("#wrapper").ready(function() {
+    var value = 0;
+    setInterval(function (e) {
+        if (value < 100) {
+            value = parseInt(value) + 7;
+            if(value > 100){
+                value = 100;
+            }
+            $("#prog").css("width", value + "%").text(value + "%");
+            if (value >= 0 && value <= 30) {
+                $("#prog").addClass("progress-bar-danger");
+            } else if (value >= 30 && value <= 100) {
+                $("#prog").removeClass("progress-bar-danger");
+                $("#prog").addClass("progress-bar-danger");
+            }
+        }
+        else if(value === 100){
+            $("#wrapper").remove();
+        }
+    }, 10);
+
+}
+);
+
+
+
+
+

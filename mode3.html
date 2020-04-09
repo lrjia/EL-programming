@@ -10,12 +10,22 @@
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body id="body">
     <!--球模型-->
     <div style="position:absolute;left:-300px;top:0;z-index: 800;" id="globe"></div>
+    <!--进度条-->
+    <div id="wrapper" style="position: relative;padding-left: 25%;padding-right:55%;padding-top:330px;z-index: 802">
+        <div class="progress progress-striped active" >
+            <div id="prog" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:0%;min-width: 3em;">
+                <span style="color: aliceblue">LOADING</span>
+            </div>
+        </div>
+    </div>
+
+
     <!--滚动评论区-->
     <div id="slides" class="carousel slide" data-ride="carousel"></div>
-
+</div>
 
 
     <!--评论按钮-->
@@ -52,12 +62,12 @@
     </form>
     <iframe name="posthere" style="display: none"></iframe>
 
-        <!-- 球模型代码 -->
-        <script type="text/javascript" src="globe/third-party/Detector.js"></script>
-        <script type="text/javascript" src="globe/third-party/three.min.js"></script>
-        <script type="text/javascript" src="globe/third-party/Tween.js"></script>
-        <script type="text/javascript" src="globe/globe.js"></script>
-        <script src="globe/mode2.js"></script>
+    <!-- 球模型代码 -->
+    <script type="text/javascript" src="globe/third-party/Detector.js"></script>
+    <script type="text/javascript" src="globe/third-party/three.min.js"></script>
+    <script type="text/javascript" src="globe/third-party/Tween.js"></script>
+    <script type="text/javascript" src="globe/globe.js"></script>
+    <script src="globe/mode2.js"></script>
         <!--评论功能-->
         <script src="scripts/mode3.js"></script>
 

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Global Pandemic mode3</title>
+    <!--使用Bootstrap4的库，主要用于优化ui-->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body id="body">
+    <!--球模型-->
+    <div style="position:absolute;left:-300px;top:0;z-index: 800;display: none" id="globe"></div>
+    <!--进度条-->
+    <div id="wrapper" style="position: relative;padding-left: 25%;padding-right:55%;padding-top:330px;z-index: 802">
+        <div class="progress progress-striped active" >
+            <div id="prog" class="progress-bar progress-bar-striped progress-bar-animated" style="width:0%"></div>
+        </div>
+    </div>
+
+
+    <!--滚动评论区-->
+    <div id="slides" class="carousel slide" data-ride="carousel"></div>
+
+
+
+    <!--评论按钮-->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#CommentModal" style="position:absolute;left:1000px;top:600px;z-index: 801;" >comment</button>
+    <form action="comment/comment.php" method="post" target="posthere" onsubmit="return is_valid()" name="user_comment" >
+        <div class="modal fade" id="CommentModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="Label">Comment</h5>
+                        <button type="button" class="close" data-dismiss="modal"  id="close_button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="user-name" class="col-form-label">name:</label>
+                                <input type="text" class="form-control" id="user-name" name="user-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="comment-text" class="col-form-label">comment:</label>
+                                <textarea class="form-control" id="comment-text" name="comment-text"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <iframe name="posthere" style="display: none"></iframe>
+
+    <!-- 球模型代码 -->
+    <script type="text/javascript" src="globe/third-party/Detector.js"></script>
+    <script type="text/javascript" src="globe/third-party/three.min.js"></script>
+    <script type="text/javascript" src="globe/third-party/Tween.js"></script>
+    <script type="text/javascript" src="globe/globe.js"></script>
+    <script src="globe/mode2.js"></script>
+        <!--评论功能-->
+        <script src="scripts/mode3.js"></script>
+
+</body>
+</html>

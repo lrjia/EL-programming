@@ -38,8 +38,8 @@ $("#wrapper").ready(function() {
             $("#prog").css("width", value + "%");
         }
         else if(value >= 240){
-            $("#wrapper").remove();
-            $("#globe").css("display", "inline")
+            $("#wrapper").fadeOut();
+            $("#globe").fadeIn(1000);
         }
     }, 30);
 }

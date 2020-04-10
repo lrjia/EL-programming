@@ -18,13 +18,12 @@ body {
 .header	.topcn{
     z-index:860;
     font-size:80px;
-    font-family: fantasy;
+    font-family: "fantasy";
     color:rgb(150, 8, 8);
     text-align:center;
-    width: auto;
+    width: 100%;
     top:60px;
-    left:36%;
-    margin-left: -445px;
+    margin: 0 auto;
     position:absolute;
 
   }
@@ -35,7 +34,7 @@ body {
   position:fixed !important;
   z-index:99;
   top:0px;
-  left: -5%;
+  margin: 0 auto;
   width:100%;
   text-align:center;
 }

@@ -29,28 +29,19 @@ function is_valid(){
     }
 }
 
-//进度条（伪）
+// 进度条（伪）
 $("#wrapper").ready(function() {
     var value = 0;
     setInterval(function (e) {
-        if (value < 100) {
-            value = parseInt(value) + 7;
-            if(value > 100){
-                value = 100;
-            }
-            $("#prog").css("width", value + "%").text(value + "%");
-            if (value >= 0 && value <= 30) {
-                $("#prog").addClass("progress-bar-danger");
-            } else if (value >= 30 && value <= 100) {
-                $("#prog").removeClass("progress-bar-danger");
-                $("#prog").addClass("progress-bar-danger");
-            }
+        if (value < 240) {
+            value = parseInt(value) + 2;
+            $("#prog").css("width", value + "%");
         }
-        else if(value === 100){
+        else if(value >= 240){
             $("#wrapper").remove();
+            $("#globe").css("display", "inline")
         }
-    }, 10);
-
+    }, 30);
 }
 );
 

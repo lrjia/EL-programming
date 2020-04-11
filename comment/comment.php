@@ -7,8 +7,12 @@ if ($con->connect_error) {
 }
 $name=$_POST["user-name"];
 $comment=$_POST["comment-text"];
-$sql = $sql = "INSERT INTO comment (name, text) 
-VALUES ('$name','$comment');"
+if (strlen($name)>20){
+    exit;
+}
+$time =  date("Y-m-d H:i:s");
+$sql = "INSERT INTO comment (name, text ,time)
+VALUES ('$name','$comment','$time');"
 ;
 if (mysqli_query($con, $sql)) {
     echo "success";

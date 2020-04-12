@@ -9,10 +9,9 @@
 </head>
 
 
-
 <body ondragstart="window.event.returnValue=false" oncontextmenu="window.event.returnValue=false"
     onselectstart="event.returnValue=false">
-    <p>加载中。。。。。。。。</p>
+    <p id="load">加载中。。。。。。。。</p>
     <!-- 球模型在这里 -->
     <div style="position:absolute;left:0;top:0;z-index: 800;" id="globe"></div>
      <!-- 球模型在这里 -->
@@ -249,17 +248,8 @@
  <!-- 美化的返回按钮,到这里结束，有点长 -->
 
 
-
-
-
-
-        <div id="currentInfo">
-            <span id="year1990" class="year">1990</span>
-            <span id="year1995" class="year">1995</span>
-            <span id="year2000" class="year">2000</span>
-        </div>
         <div id="draggable">
-            <p>水平拖动时间轴</p>
+            <p id="draggable_p">水平拖动时间轴</p>
         </div>
     </div>
 
@@ -275,16 +265,6 @@
             border: 1px solid;
         }
     </style>
-
-
-
-
-    <script>
-        window.onload=function(){
-            window.document.body.removeChild(window.document.body.children[0]);
-        }
-    </script>
-
 
     <!-- 球模型代码 -->
     <script type="text/javascript" src="globe/third-party/Detector.js"></script>

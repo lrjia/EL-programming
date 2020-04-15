@@ -54,6 +54,8 @@ function initDrag(){
     // startDate.setFullYear("2020-01-22");
     $(function () {
         $('#draggable').draggable({
+            cursor: "move",
+            handle: "p.handler",
             axis: "x",
             drag: function () {
                 preOrder=Math.floor(parseInt(timetable.style.left) / (window.innerWidth / (totalDay)/1.5)) % totalDay;

@@ -6,6 +6,10 @@ function is_valid(){
         alert("Please enter your name.");
         return false;
     }
+    //输入姓名超过20个字符
+    else if(user_name.length() > 20){
+        alert("Max length of name is 20.");
+    }
     //输入评论为空
     var user_comment = document.forms["user_comment"]["comment-text"].value;
     if (user_comment === ""){
@@ -45,7 +49,62 @@ $("#wrapper").ready(function() {
 }
 );
 
+//滚动显示评论区
+// $("slides").ready(function () {
+//     $.get("show_comment.php", function(data){
+//         alert("数据: " + data + "\n");
+//     });
+// });
 
 
+//还在学
+function GetXmlHttpObject()
+{
+    var xmlHttp=null;
 
+    try
+    {
+        // Firefox, Opera 8.0+, Safari
+        xmlHttp=new XMLHttpRequest();
+    }
+    catch (e)
+    {
+        // Internet Explorer
+        try
+        {
+            xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+        }
+        catch (e)
+        {
+            xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+    }
+    return xmlHttp;
+}
+
+
+//冒泡提示
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+})
+
+//评论区
+var com1 = document.getElementById("com1");
+var com2 = document.getElementById("com2");
+var com3 = document.getElementById("com3");
+var top1 = parseFloat(com1.style.top);
+var top2 = parseFloat(com2.style.top);
+var top3 = parseFloat(com3.style.top);
+$("#com1").ready(function () {
+        $("#com1").fadeIn(1000);
+    setInterval(function () {
+        $("#com1").fadeIn(1000);
+        $("#com1").fadeOut(1000);
+        top1 += 500;
+        com1.style.top = top1 + "px";
+        //重新载入新数据等
+
+    },5000);
+}
+);
 

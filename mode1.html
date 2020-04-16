@@ -9,17 +9,15 @@
 </head>
 
 
-
 <body ondragstart="window.event.returnValue=false" oncontextmenu="window.event.returnValue=false"
     onselectstart="event.returnValue=false">
-    <p>加载中。。。。。。。。</p>
+    <p id="load">加载中。。。。。。。。</p>
     <!-- 球模型在这里 -->
     <div style="position:absolute;left:0;top:0;z-index: 800;" id="globe"></div>
-     <!-- 球模型在这里 -->
-    
+
     <div style="position:absolute;z-index: 900;">
         <!-- 美化的返回按钮 -->
-        <svg viewBox ="0 0 800 600" style="width:300px;visibility:hidden;position: absolute;">
+        <svg viewBox="0 0 800 600" style="width:300px;visibility:hidden;position: absolute;">
             <defs>
                 <linearGradient id="BGDarkGrad" gradientUnits="userSpaceOnUse" x1="217" y1="300" x2="599" y2="300">
                     <stop offset="0" style="stop-color:#155063" />
@@ -37,23 +35,27 @@
                     <stop offset="0" style="stop-color:#D62900" />
                     <stop offset="1" style="stop-color:#FA2300;stop-opacity:0.8" />
                 </linearGradient>
-                <linearGradient id="planetBig" gradientUnits="userSpaceOnUse" x1="482.9608" y1="337.5356" x2="549.6864" y2="453.1078">
+                <linearGradient id="planetBig" gradientUnits="userSpaceOnUse" x1="482.9608" y1="337.5356" x2="549.6864"
+                    y2="453.1078">
                     <stop offset="0" style="stop-color:#FA2300" />
                     <stop offset="1" style="stop-color:#D62900" />
                 </linearGradient>
-                <linearGradient id="planetBigDark" gradientUnits="userSpaceOnUse" x1="178.5151" y1="536.6867" x2="267.1119" y2="442.7123">
+                <linearGradient id="planetBigDark" gradientUnits="userSpaceOnUse" x1="178.5151" y1="536.6867"
+                    x2="267.1119" y2="442.7123">
                     <stop offset="0" style="stop-color:#222528" />
                     <stop offset="0.194" style="stop-color:#2A2D30" />
                     <stop offset="0.4994" style="stop-color:#414344" />
                     <stop offset="0.876" style="stop-color:#656666" />
                     <stop offset="1" style="stop-color:#737373" />
                 </linearGradient>
-                <linearGradient id="cometLeftGrad" gradientUnits="userSpaceOnUse" x1="319.475" y1="313.3" x2="319.475" y2="273.2">
+                <linearGradient id="cometLeftGrad" gradientUnits="userSpaceOnUse" x1="319.475" y1="313.3" x2="319.475"
+                    y2="273.2">
                     <stop offset="0" style="stop-color:#FFFFFF" />
                     <stop offset="0.0699" style="stop-color:#FFFFFF;stop-opacity:0.9301" />
                     <stop offset="1" style="stop-color:#FFFFFF;stop-opacity:0" />
                 </linearGradient>
-                <linearGradient id="cometRightGrad" gradientUnits="userSpaceOnUse" x1="448.6955" y1="254.7794" x2="498.3045" y2="254.7794">
+                <linearGradient id="cometRightGrad" gradientUnits="userSpaceOnUse" x1="448.6955" y1="254.7794"
+                    x2="498.3045" y2="254.7794">
                     <stop offset="0" style="stop-color:#FFFFFF" />
                     <stop offset="0.1248" style="stop-color:#FFFFFF;stop-opacity:0.8752" />
                     <stop offset="1" style="stop-color:#FFFFFF;stop-opacity:0" />
@@ -132,73 +134,103 @@
                     <path fill="#FFFFFF" d="M201,290v-11l68-41c0,0-28,25-29,52H201z" />
                     <rect x="223" y="290" fill="#FFFFFF" width="17" height="20" />
                 </g>
-                <path id="falconTop" display="inline" fill="#FFFFFF" d="M275.458,223.687c-0.286-0.429-0.768-0.687-1.284-0.687h-4.67h-17.162
+                <path id="falconTop" display="inline" fill="#FFFFFF"
+                    d="M275.458,223.687c-0.286-0.429-0.768-0.687-1.284-0.687h-4.67h-17.162
             c-5.326,0-9.977,4.019-10.321,9.334C241.644,238.159,246.257,243,252,243h17.505H275h6v-11L275.458,223.687z" />
                 <g id="falconLinesNoClip">
-                    <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="223" y1="291" x2="239" y2="291" />
-                    <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="223" y1="309" x2="239" y2="309" />
+                    <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="223" y1="291"
+                        x2="239" y2="291" />
+                    <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="223" y1="309"
+                        x2="239" y2="309" />
                 </g>
-    
+
                 <g id="deathStar" clip-path="url(#deathStarClip)">
-                    <line id="deathStarMiddleLine" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" x1="281" y1="300" x2="409" y2="300" />
+                    <line id="deathStarMiddleLine" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10"
+                        x1="281" y1="300" x2="409" y2="300" />
                     <g id="deathStarSmallLineGroup">
-                        <line fill="none" id="smCL" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" x1="301" y1="277" x2="315" y2="277" />
-                        <line fill="none" id="smL" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" x1="274" y1="325" x2="288" y2="325" />
-                        <line fill="none" id="smCR" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" x1="331" y1="329" x2="316" y2="329" />
-                        <line fill="none" id="smR" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" x1="363" y1="341" x2="350" y2="341" />
+                        <line fill="none" id="smCL" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" x1="301"
+                            y1="277" x2="315" y2="277" />
+                        <line fill="none" id="smL" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" x1="274"
+                            y1="325" x2="288" y2="325" />
+                        <line fill="none" id="smCR" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" x1="331"
+                            y1="329" x2="316" y2="329" />
+                        <line fill="none" id="smR" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" x1="363"
+                            y1="341" x2="350" y2="341" />
                     </g>
                     <g id="centerLines">
-                        <line id="centerTop" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" x1="316" y1="245" x2="316" y2="222" />
-                        <line id="centerMid" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" x1="315" y1="269" x2="315" y2="345" />
-                        <path id="centerBot" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" d="M315,378v-18.5" />
+                        <line id="centerTop" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10"
+                            x1="316" y1="245" x2="316" y2="222" />
+                        <line id="centerMid" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10"
+                            x1="315" y1="269" x2="315" y2="345" />
+                        <path id="centerBot" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10"
+                            d="M315,378v-18.5" />
                     </g>
                     <g id="centerLinesMorph" style="display:none">
-                        <path id="centerTopMorph" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" d="M316,222c0,0,14,7,28,27" />
-                        <path id="centerMidMorph" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" d="M354.5,270.5c0,0,13,42-8,77" />
-                        <path id="centerBotMorph" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" d="M315,378c0,0,8-1,23-19" />
+                        <path id="centerTopMorph" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10"
+                            d="M316,222c0,0,14,7,28,27" />
+                        <path id="centerMidMorph" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10"
+                            d="M354.5,270.5c0,0,13,42-8,77" />
+                        <path id="centerBotMorph" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10"
+                            d="M315,378c0,0,8-1,23-19" />
                     </g>
                     <g id="centerLinesMorph2" display="none">
-                        <path id="centerTopMorph2" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" d="M316,222
+                        <path id="centerTopMorph2" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10"
+                            d="M316,222
                 c0,0,27-3,58,26" />
-                        <path id="centerMidMorph2" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" d="
+                        <path id="centerMidMorph2" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10"
+                            d="
                 M387.5,269.5c0,0,18,37-10,77" />
-                        <path id="centerBotMorph2" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" d="M315,378
+                        <path id="centerBotMorph2" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10"
+                            d="M315,378
                 c0,0,27,1,48.5-17.5" />
                     </g>
                     <g id="outerLines">
-                        <path id="outerTop" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" d="M316,222c0,0,15,10,26,23" />
+                        <path id="outerTop" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10"
+                            d="M316,222c0,0,15,10,26,23" />
                         <path id="outerBot" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" d="M315,378
                 c0,0,34.531-20.642,42.564-57.908c1.818-8.433,2.163-17.118,1.381-25.71L358,284" />
                     </g>
                     <g id="outerLinesMorph" style="display:none">
-                        <path id="outerTopMorph" fill="none" stroke="#B5B5B5" stroke-width="2" stroke-miterlimit="10" d="M316,222c0,0,32-1,57,26" />
+                        <path id="outerTopMorph" fill="none" stroke="#B5B5B5" stroke-width="2" stroke-miterlimit="10"
+                            d="M316,222c0,0,32-1,57,26" />
                         <path id="outerBotMorph" fill="none" stroke="#B5B5B5" stroke-width="2" stroke-miterlimit="10" d="M315,378c0,0,54,4,75-56
                 c2.85-8.143,3.727-19.026,2.945-27.617L391,280" />
                     </g>
                     <g id="bentLinesLeft">
                         <path id="bentLineLeft" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" d="
                 M289,353c0,0,15,19,26,25" />
-                        <path id="bentLineLeftMorph" style="display:none" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" d="
+                        <path id="bentLineLeftMorph" style="display:none" fill="none" stroke="#B5B5B5" stroke-width="3"
+                            stroke-miterlimit="10" d="
                 M315,353c0,0,0,16,0,25" />
-                        <path id="bentLineLeftMorph2" style="display:none" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" d="
+                        <path id="bentLineLeftMorph2" style="display:none" fill="none" stroke="#B5B5B5" stroke-width="3"
+                            stroke-miterlimit="10" d="
                 M332,362c0,0-8,13-17,16" />
-                        <path id="bentLineLeftMorph3" style="display:none" fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" d="
+                        <path id="bentLineLeftMorph3" style="display:none" fill="none" stroke="#B5B5B5" stroke-width="3"
+                            stroke-miterlimit="10" d="
                 M340,375c0,0-15,6-25,3" />
                     </g>
                     <g id="deathStarCircleGroup">
-                        <circle fill="#FFFFFF" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" cx="350" cy="265" r="21" />
-                        <circle fill="#FFFFFF" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" cx="350" cy="265" r="4" />
+                        <circle fill="#FFFFFF" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" cx="350"
+                            cy="265" r="21" />
+                        <circle fill="#FFFFFF" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" cx="350"
+                            cy="265" r="4" />
                     </g>
                 </g>
                 <g id="falcon">
                     <g clip-path="url(#falconClip)">
                         <g id="falconLines">
-                            <circle fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" cx="318.5" cy="298.5" r="26" />
-                            <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="361" y1="247" x2="333" y2="276" />
-                            <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="361" y1="351" x2="332.5" y2="321.5" />
-                            <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="307" y1="220.5" x2="307" y2="274.993" />
-                            <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="331" y1="220.5" x2="331" y2="274.993" />
-                            <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="307" y1="269" x2="281" y2="230" />
+                            <circle fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" cx="318.5"
+                                cy="298.5" r="26" />
+                            <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="361"
+                                y1="247" x2="333" y2="276" />
+                            <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="361"
+                                y1="351" x2="332.5" y2="321.5" />
+                            <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="307"
+                                y1="220.5" x2="307" y2="274.993" />
+                            <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="331"
+                                y1="220.5" x2="331" y2="274.993" />
+                            <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="307"
+                                y1="269" x2="281" y2="230" />
                             <g id="falconDots">
                                 <circle fill="#B5B5B5" cx="356.5" cy="278.5" r="3" />
                                 <circle fill="#B5B5B5" cx="361" cy="299" r="3" />
@@ -211,34 +243,38 @@
                 c1.787-18.695,10.215-34.855,22.923-47.501l1.722,0.001l30,45" />
                             <path fill="none" stroke="#B5B5B5" stroke-width="3" stroke-miterlimit="10" d="M267.5,361.5
                 c-15.674-12.43-25.08-31.47-27.422-52.5" />
-                            <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="307" y1="322.5" x2="307" y2="378.993" />
-                            <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="331" y1="322.5" x2="331" y2="376.993" />
-                            <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="223" y1="291" x2="293" y2="291" />
-                            <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="223" y1="309" x2="294" y2="309" />
+                            <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="307"
+                                y1="322.5" x2="307" y2="378.993" />
+                            <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="331"
+                                y1="322.5" x2="331" y2="376.993" />
+                            <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="223"
+                                y1="291" x2="293" y2="291" />
+                            <line fill="none" stroke="#B5B5B5" stroke-width="3 " stroke-miterlimit="10" x1="223"
+                                y1="309" x2="294" y2="309" />
                         </g>
-    
+
                         <path id="falconOverlay" fill="#FFFFFF" d="M225,307c0,70.14,104.318,127,233,127
             c0,0-62.731-60.116-62.731-130.256S458,180,458,180C329.318,180,225,236.86,225,307z" />
                     </g>
                 </g>
             </g>
         </svg>
-    
-    
+
+
         <script type="text/javascript">
             //设定倒数秒数 
             var countx = 2;
             //写一个方法，显示倒数秒数  数到0后跳转页面  
-            function countDown(){
+            function countDown() {
                 //没执行一次，count减1
                 countx -= 1;
                 //count=0时，跳转页面
-                if(countx==0){
+                if (countx == 0) {
                     window.location.replace('index.html');
-                                //window.location.href="index.html";
-                    countx=2;
+                    //window.location.href="index.html";
+                    countx = 2;
                 }
-                setTimeout("countDown()",1000);
+                setTimeout("countDown()", 1000);
             }
         </script>
         <!-- partial -->
@@ -246,27 +282,23 @@
         <script src='scripts/MorphSVGPlugin.min.js'></script>
         <script src="scripts/script.js"></script>
 
- <!-- 美化的返回按钮,到这里结束，有点长 -->
+        <!-- 美化的返回按钮,到这里结束，有点长 -->
 
 
 
-
-
-
-        <div id="currentInfo">
-            <span id="year1990" class="year">1990</span>
-            <span id="year1995" class="year">1995</span>
-            <span id="year2000" class="year">2000</span>
-        </div>
-        <div id="draggable">
-            <p>水平拖动时间轴</p>
-        </div>
     </div>
 
+    <!-- 时间轴 -->
+    <div id="bottom">
+        <div id="draggable">
+            <p id="draggable_p">拖动%%</p>
+            <!-- 可以用用图片替代下面的%% -->
+            <p class="handler" id="handler">%%</p>
+        </div>
+        <p>在这里放一个可以图片表示时间轴</p>
+    </div>
     <script src="globe/third-party/jquery-1.9.1.js"></script>
     <script src="globe/third-party/jquery-ui.js"></script>
-
-    
     <style>
         #draggable {
             width: 120px;
@@ -274,16 +306,17 @@
             padding: 0.5em;
             border: 1px solid;
         }
-    </style>
 
-
-
-
-    <script>
-        window.onload=function(){
-            window.document.body.removeChild(window.document.body.children[0]);
+        #handler {
+            text-align: center;
         }
-    </script>
+
+        #bottom {
+            z-index: 900;
+            position: absolute;
+            bottom: 60px;
+        }
+    </style>
 
 
     <!-- 球模型代码 -->

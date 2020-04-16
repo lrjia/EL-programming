@@ -10,24 +10,59 @@
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-<body id="body">
+<body >
     <!--球模型-->
     <div style="position:absolute;left:-300px;top:0;z-index: 800;display: none" id="globe"></div>
     <!--进度条-->
-    <div id="wrapper" style="position: relative;padding-left: 25%;padding-right:55%;padding-top:330px;z-index: 802">
+    <div id="wrapper" style="position: absolute;padding-left: 25%;padding-right:55%;padding-top:330px;z-index: 802">
         <div class="progress progress-striped active" >
             <div id="prog" class="progress-bar progress-bar-striped progress-bar-animated" style="width:0%"></div>
         </div>
     </div>
 
-
     <!--滚动评论区-->
-    <div id="slides" class="carousel slide" data-ride="carousel"></div>
+<!--    <div id="show_comment" style="width: 18rem" class="card">-->
+<!--        <div id="comment_body" class="card_body">12345</div>-->
+<!--    </div>-->
+
+    <div id="com1" class="card bg-light mb-3" style="width: 28rem;position:absolute;left: 65rem;top: 100px;max-height:10.5rem;z-index: 900;">
+        <div class="card-header">
+            <div id="name1" style="width: 50%;float: left;display: inline;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;" data-toggle="tooltip" data-placement="top" title="我也不知到为什么我的名字会这么长">我也不知到为什么我的名字会这么长</div>
+            <div style="width: 10%;float: right;display: inline;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;font-size: small">美国</div>
+            <div style="width: 25%;float: right;display: inline;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;font-size: small">2020/4/11/15:22</div>
+        </div>
+        <div class="card-body" style="text-overflow: ellipsis;overflow: hidden;white-space: normal">
+            22222
+        </div>
+    </div>
+
+    <div id="com2" class="card bg-light mb-3" style="width: 28rem;position:absolute;left: 65rem;top:18.5rem;max-height:10.5rem;z-index: 900;">
+        <div class="card-header">
+            <div id="name2" style="width: 50%;float: left;display: inline;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;" data-toggle="tooltip" data-placement="top" title="我也不知到为什么我的名字会这么长">我也不知到为什么我的名字会这么长</div>
+            <div style="width: 10%;float: right;display: inline;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;font-size: small">美国</div>
+            <div style="width: 25%;float: right;display: inline;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;font-size: small">2020/4/11/15:22</div>
+        </div>
+        <div class="card-body" style="text-overflow: ellipsis;overflow: hidden;white-space: normal">
+            test
+        </div>
+    </div>
+
+    <div id="com3" class="card bg-light mb-3" style="width: 28rem;position:relative;left: 65rem;top:29rem;max-height:10.5rem;z-index: 900;">
+        <div class="card-header">
+            <div id="name3" style="width: 50%;float: left;display: inline;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;" data-toggle="tooltip" data-placement="top" title="我也不知到为什么我的名字会这么长">我也不知到为什么我的名字会这么长</div>
+            <div style="width: 10%;float: right;display: inline;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;font-size: small">美国</div>
+            <div style="width: 25%;float: right;display: inline;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;font-size: small">2020/4/11/15:22</div>
+        </div>
+        <div class="card-body" style="text-overflow: ellipsis;overflow: hidden;white-space: normal">
+            1111
+        </div>
+    </div>
+
 
 
 
     <!--评论按钮-->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#CommentModal" style="position:absolute;left:1000px;top:600px;z-index: 801;" >comment</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#CommentModal" style="position:absolute;left:1000px;top:700px;z-index: 801;" >comment</button>
     <form action="comment/comment.php" method="post" target="posthere" onsubmit="return is_valid()" name="user_comment" >
         <div class="modal fade" id="CommentModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -66,8 +101,9 @@
     <script type="text/javascript" src="globe/third-party/Tween.js"></script>
     <script type="text/javascript" src="globe/globe.js"></script>
     <script src="globe/mode2.js"></script>
-        <!--评论功能-->
-        <script src="scripts/mode3.js"></script>
+    <!--评论功能-->
+    <script src="scripts/mode3.js"></script>
+    <script src="comment/show_comment.php"></script>
 
 </body>
 </html>

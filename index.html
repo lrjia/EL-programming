@@ -19,17 +19,40 @@ onselectstart="event.returnValue=false">
   <div class="topcn" >
       <h1 id="h1">Global Pandemic</h1>
   </div>
-    
-  <div align="center" class="tip" onclick=testfunction() >
-    <span class="tipcontent" id="tip">click to continue</span>
-  </div>
+<div class="button">
+   <p onclick=jumpToMode2()>
+      <span></span> 
+      <span></span>
+      <span></span>
+      <span></span>
+      节点模式
+   </p>
+   <p onclick=jumpToMode1()>
+    <span></span> 
+    <span></span>
+    <span></span>
+    <span></span>
+    标准模式
+   </p>
+   <p onclick=jumpToMode3()>
+    <span></span> 
+    <span></span>
+    <span></span>
+    <span></span>
+    寄语模式
+   </p>
+</div>
+   
 
     <div class="showimg" id="fade">
-      <img src="styles/images/alienspeaking.png">
+      <img src="styles/images/标准模式.png">
     </div>
     
     <div class="showimg1" id="fade1">
-      <img src="styles/images/alienspeaking2.png">
+      <img src="styles/images/节点模式.png">
+    </div>
+    <div class="showimg2" id="fade2">
+      <img src="styles/images/寄语模式.png">
     </div>
 
   
@@ -51,33 +74,46 @@ onselectstart="event.returnValue=false">
   <!--音乐以及音效 START-->
   <!--音乐以及音效 END-->
   <script>
-    var flag=0
-    function testfunction()
-    {
-      if(flag==0)
-      {
-        btnIn()
-        flag=1
-        return
-      }
+    var flag=1;
+    var flag1=1;
+    var flag2=1;
+		function jumpToMode1() {
+      
       if(flag==1)
       {
-        btnOut()
-        flag=2
-        return
+        btnIn();
+        flag=2;
+        return;
       }
-      if(flag==2)
+		  if(flag==2)
       {
-        btnIn1()
-        flag=3
-        return
+        window.location.replace('mode1.html')
       }
-      if(flag==3)
+		}
+		function jumpToMode2() {
+		  if(flag1==1)
       {
-        window.location.replace('menu.html')
-  
+        btnIn1();
+        flag1=2;
+        return;
       }
-    }
+		  if(flag1==2)
+      {
+        window.location.replace('mode2.html')
+      }
+		}
+		function jumpToMode3() {
+		  if(flag2==1)
+      {
+        btnIn2();
+        flag2=2;
+        return;
+      }
+		  if(flag2==2)
+      {
+        window.location.replace('mode3.html')
+      }
+		}
   </script>
 
 

@@ -49,9 +49,9 @@ if (!Detector.webgl) {
 function initDrag(){
     var timetable = document.getElementById("draggable");
     var order = 0;
+    // 最初的数据日期，如果修改需要更改
     var startDate = new Date("2020-01-22");
     console.log(startDate);
-    // startDate.setFullYear("2020-01-22");
     $(function () {
         $('#draggable').draggable({
             cursor: "move",

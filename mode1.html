@@ -12,7 +12,7 @@
 <body ondragstart="window.event.returnValue=false" oncontextmenu="window.event.returnValue=false"
     onselectstart="event.returnValue=false">
     <p id="load">加载中。。。。。。。。</p>
-    <!-- 球模型在这里 -->
+    <!-- 球模型 -->
     <div style="position:absolute;left:0;top:0;z-index: 800;" id="globe"></div>
 
     <div style="position:absolute;z-index: 900;">
@@ -259,35 +259,9 @@
                 </g>
             </g>
         </svg>
-
-
-        <script type="text/javascript">
-            //设定倒数秒数 
-            var countx = 2;
-            //写一个方法，显示倒数秒数  数到0后跳转页面  
-            function countDown() {
-                //没执行一次，count减1
-                countx -= 1;
-                //count=0时，跳转页面
-                if (countx == 0) {
-                    window.location.replace('index.html');
-                    //window.location.href="index.html";
-                    countx = 2;
-                }
-                setTimeout("countDown()", 1000);
-            }
-        </script>
-        <!-- partial -->
-        <script src='scripts/TweenMax.min.js'></script>
-        <script src='scripts/MorphSVGPlugin.min.js'></script>
-        <script src="scripts/script.js"></script>
-
         <!-- 美化的返回按钮,到这里结束，有点长 -->
-
-
-
     </div>
-
+    
     <!-- 时间轴 -->
     <div id="bottom">
         <div id="draggable">
@@ -296,34 +270,45 @@
             <p class="handler" id="handler">%%</p>
         </div>
         <p>在这里放一个可以图片表示时间轴</p>
+        <button id="getShot">截图</button>
+
+        <!-- 时间轴style 临时 -->
+        <style>
+            #draggable {
+                width: 120px;
+                height: 45px;
+                padding: 0.5em;
+                border: 1px solid;
+            }
+    
+            #handler {
+                text-align: center;
+            }
+    
+            #bottom {
+                z-index: 900;
+                position: absolute;
+                bottom: 60px;
+            }
+        </style>
     </div>
+    
+
+    <!-- partial -->
+    <script src='scripts/TweenMax.min.js'></script>
+    <script src='scripts/MorphSVGPlugin.min.js'></script>
+    <script src="scripts/script.js"></script>
+
+    <!-- 时间轴 -->
     <script src="globe/third-party/jquery-1.9.1.js"></script>
     <script src="globe/third-party/jquery-ui.js"></script>
-    <style>
-        #draggable {
-            width: 120px;
-            height: 45px;
-            padding: 0.5em;
-            border: 1px solid;
-        }
 
-        #handler {
-            text-align: center;
-        }
-
-        #bottom {
-            z-index: 900;
-            position: absolute;
-            bottom: 60px;
-        }
-    </style>
-
-
-    <!-- 球模型代码 -->
+    <!-- 球模型 -->
     <script type="text/javascript" src="globe/third-party/Detector.js"></script>
     <script type="text/javascript" src="globe/third-party/three.min.js"></script>
     <script type="text/javascript" src="globe/third-party/Tween.js"></script>
     <script type="text/javascript" src="globe/globe.js"></script>
+
     <script src="globe/mode1.js"></script>
 </body>
 

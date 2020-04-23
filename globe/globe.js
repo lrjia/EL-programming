@@ -373,6 +373,14 @@ DAT.Globe = function(container, opts) {
     renderer.render(scene, camera);
   }
 
+  function shot() {
+    renderer.render(scene, camera);//renderer为three.js里的渲染器，scene为场景 camera为相机
+    let imgData = renderer.domElement.toDataURL("image/jpeg");//这里可以选择png格式jpeg格式
+    
+    return imgData;
+  }
+
+
   init();
   this.animate = animate;
 
@@ -405,6 +413,7 @@ DAT.Globe = function(container, opts) {
     this._time = t;
   });
 
+  this.shot=shot;
   this.addData = addData;
   this.createPoints = createPoints;
   this.renderer = renderer;

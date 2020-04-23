@@ -4,6 +4,8 @@ window.onload = function () {
     load.parentNode.removeChild(load);
 }
 
+
+// 加载数据，地球
 if (!Detector.webgl) {
     Detector.addGetWebGLMessage();
 } else {
@@ -29,8 +31,9 @@ if (!Detector.webgl) {
             globe.animate();
             document.body.style.backgroundImage = 'none'; // remove loading
 
-            // 时间轴，在数据加载完成后
+            // 在数据加载完成后，启动时间轴，截图，
             initDrag();
+            initShot();
         }
     };
     xhr.send(null);
@@ -44,6 +47,7 @@ if (!Detector.webgl) {
         };
     };
 }
+
 
 //时间轴代码
 function initDrag(){
@@ -71,4 +75,34 @@ function initDrag(){
             },
         });
     });
+}
+
+
+// 按钮倒计时
+var countx = 2;
+function countDown() {
+    //写一个方法，显示倒数秒数  数到0后跳转页面  
+    //没执行一次，count减1
+    countx -= 1;
+    //count=0时，跳转页面
+    if (countx == 0) {
+        window.location.replace('index.html');
+        //window.location.href="index.html";
+        countx = 2;
+    }
+    //设定倒数秒数 
+    setTimeout("countDown()", 1000);
+}
+
+
+function initShot() {
+    function takeShot() {
+        console.log("in");
+        let imgUrl = globe.shot();
+        let a = $("<a></a>").attr("href", imgUrl).attr("download", "img.png").appendTo("body");
+        a[0].click();
+        a.remove();
+    }
+    let shotButton = document.getElementById("getShot");
+    shotButton.addEventListener("click", takeShot);
 }

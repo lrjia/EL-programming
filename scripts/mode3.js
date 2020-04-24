@@ -56,31 +56,36 @@ $("#wrapper").ready(function() {
 //     });
 // });
 
+$("#submit").click(function () {
 
-//还在学
-function GetXmlHttpObject()
-{
-    var xmlHttp=null;
+})
 
-    try
-    {
-        // Firefox, Opera 8.0+, Safari
-        xmlHttp=new XMLHttpRequest();
-    }
-    catch (e)
-    {
-        // Internet Explorer
-        try
-        {
-            xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
-        }
-        catch (e)
-        {
-            xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-    }
-    return xmlHttp;
-}
+
+
+//show comment
+// window.onLoad() = function ShowComment()
+// {
+//     if (window.XMLHttpRequest)
+//     {
+//         // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+//         xmlhttp=new XMLHttpRequest();
+//     }
+//     else
+//     {
+//         // IE6, IE5 浏览器执行代码
+//         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+//     }
+//     xmlhttp.onreadystatechange=function()
+//     {
+//         if (xmlhttp.readyState==4 && xmlhttp.status==200)
+//         {
+//             document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+//         }
+//     }
+//     xmlhttp.open("GET","./comment/show_comment.php",true);
+//     xmlhttp.send();
+//
+// }
 
 
 //冒泡提示

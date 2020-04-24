@@ -45,7 +45,7 @@ if (!Detector.webgl) {
         return function () {
             new TWEEN.Tween(globe).to({ time: t / totalDay }, 500).easing(TWEEN.Easing.Cubic.EaseOut).start();
         };
-    };
+};
 }
 
 

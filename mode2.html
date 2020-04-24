@@ -13,12 +13,97 @@
     <div style="position:absolute;left:0;top:0;z-index: 800;" id="globe"></div>
     <div style="position:absolute;z-index: 900;">
         <button  id="returnButton" >返回</button>
-        
-        <button  id="nextButton"" >下一个</button>
-        <button  id="preButton" >前一个</button>
-        <p id="introduction">这里可以显示节点介绍</p>
+        <p></p>
+        <button class="btn" id="nextButton" >
+        <label>下一个</label>    
+        </button>
+        <button class="btn" id="preButton" >
+        <label>前一个</label>    
+        </button>
+
+        <!-- 节点介绍和图片 -->
+        <p id="introduction">Sun Dec 01 2019</p>
+        <div id="imagpos">
+        <img id="nodeImage" src="styles/images/mode2/2019-12-01.png">
+    </div>
     </div>
  
+    <style>
+        #imagpos
+        {
+            position:absolute;
+            position:fixed !important;
+            z-index:auto;
+            bottom:0px;
+            width:100%;
+            text-align: right;
+        }
+        .btn {
+  background: none;
+  border: 0;
+  outline: 0;
+  color: rgb(26, 88, 124);
+  font-family: 'JetBrains Mono';
+  font-size: 20px;
+  cursor: pointer;
+  border: 4px solid aquamarine;
+  width: 150px;
+  height: 50px;
+  position: relative;
+}
+
+.btn label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: 50px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgb(114, 114, 114);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: -4px;
+  width: 0px;
+  height: 0;
+  z-index: 0;
+  background-color: brown;
+  transition: width .5s,height .5s;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  width: 0;
+  height: 0;
+  z-index: 0;
+  background-color: brown;
+  transition: width .5s,height .5s;
+
+  /* width: calc(100% + 4px);
+  height: calc(100% + 4px); */
+}
+
+.btn:hover {
+  color: brown;
+}
+
+.btn:hover::before {
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+}
+
+.btn:hover::after {
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+}
+    </style>
     <!-- 球模型代码 -->
     <script type="text/javascript" src="globe/third-party/Detector.js"></script>
     <script type="text/javascript" src="globe/third-party/three.min.js"></script>

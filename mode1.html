@@ -10,6 +10,11 @@
 
 <body style='background-image: url("styles/images/starrysky.jpg"); cursor: auto;' ondragstart="window.event.returnValue=false" onselectstart="event.returnValue=false" oncontextmenu="window.event.returnValue=false">
 
+<body ondragstart="window.event.returnValue=false" oncontextmenu="window.event.returnValue=false"
+    onselectstart="event.returnValue=false">
+    <p id="load">加载中。。。。。。。。</p>
+    <!-- 球模型 -->
+    <div style="position:absolute;left:0;top:0;z-index: 800;" id="globe"></div>
 
     <div style="position:absolute;z-index: 900;left:0%;top: 0%;">
         <!-- 美化的返回按钮 -->
@@ -192,12 +197,6 @@
         </svg>
         <!-- 美化的返回按钮,到这里结束，有点长 -->
     </div>
-    <!-- 球模型 -->
-    <div id="globe">
-        <canvas width="1228" height="938" style="width: 983px; height: 751px; position: absolute;"></canvas>
-    </div>
-
-    
     
     <!-- 时间轴 -->
     <div id="bottom" >
@@ -274,6 +273,9 @@
 
     <script src="globe/mode1.js"></script>
 
+    <!-- 时间轴 -->
+    <script src="globe/third-party/jquery-1.9.1.js"></script>
+    <script src="globe/third-party/jquery-ui.js"></script>
 
 </body>
 

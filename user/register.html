@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title id="title">login</title>
+    <title id="title">register</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
@@ -10,9 +10,12 @@
 
 </head>
 <body>
-
+<div class="alert alert-success alert-dismissible fade show" style="display: none" id="alert_success">
+    <button type="button" class="close" data-dismiss="alert" id='close_button_in_alert1'>&times;</button>
+    <strong>Success</strong>
+</div>
 <form>
-    <div class="card" style="width: 23rem;left: 50%;top: 40%;position: absolute;transform: translate(-50%,-50%)" id="card" >
+    <div class="card" style="width: 23rem;left: 50%;top: 40%;position: absolute;transform: translate(-50%,-50%);display: none" id="card" >
         <br>
         <p style="font-size:1.5rem;align-self: center;">LOGIN</p>
         <div class="input-group mb-3" style="width: 80%;align-self:center">
@@ -29,21 +32,21 @@
             <input type="password" class="form-control" placeholder="Password" id="password">
         </div>
 
-        <div>
+    <div>
             <div style="width:50%;display: inline" id="login">
-                <button type="button" class="btn btn-primary" style="width: 35%;margin-left:10%;float: left">登陆</button>
+                    <button type="button" class="btn btn-primary" style="width: 35%;margin-left:10%;float: left">登陆</button>
             </div>
             <div style="width:50%;display: inline" id="register">
-                <button type="button" class="btn btn-light" style="width: 35%;margin-right:10%;float: right">注册</button>
+                    <button type="button" class="btn btn-light" style="width: 35%;margin-right:10%;float: right">注册</button>
             </div>
-        </div>
-        <br>
+    </div>
+    <br>
     </div>
 </form>
 
 
 <form>
-    <div class="card" style="width: 23rem;left: 50%;top: 40%;position: absolute;transform: translate(-50%,-50%);display: none" id="card2" >
+    <div class="card" style="width: 23rem;left: 50%;top: 40%;position: absolute;transform: translate(-50%,-50%)" id="card2" >
         <br>
         <p style="font-size:1.5rem;align-self: center;">REGISTER</p>
         <div class="input-group mb-3" style="width: 80%;align-self:center">
@@ -80,6 +83,7 @@
 
 
 <script type="text/javascript" src="login.js"></script>
+<script src="library/jquery-1.9.1.js"></script>
 </body>
 </html>
 

@@ -7,6 +7,4 @@
     }else{
         echo "error";
     }
-
-
 ?>

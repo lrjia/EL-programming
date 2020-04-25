@@ -1,25 +1,16 @@
 <?php
-    session_start();
-    //连接数据库
-    $con = mysqli_connect("localhost","ELcomment","mAwDK7B4ZfwETPz3", "ELcomment");
+session_start();//开启session
+require('library/Db.class.php');
+$username  = $_POST['username'];
+$password  = $_POST['password'];
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $sql = "select * form user where username = :username and password = :password";
-    $result = $con->query($sql);
-    $flag = 0;
-    if($result->num_rows > 0){
-        while($row = $result->fetch_assoc()){
-            if($username == $row["username"] and $password == $row["password"]){
-                $flag = 1;
-            }
-        }
-    }
-    if($flag==1) {
-        $_SESSION['user'] = $username;
-        echo 1;
-    }else{
-        echo -1;
-    }
-?>
+//检验用户名和密码是否匹配
+$sql  = "select * from user where username = '$username' and password = '$password'";
+$db = new DB();
+$user = $db->row($sql,array('username'=>$username,'password'=>md5($password)));
+if($user){
+    $_SESSION['user'] = $user;
+    echo 1;
+}else{
+    echo -1;
+}

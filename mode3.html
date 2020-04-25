@@ -11,10 +11,12 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body >
+    <p style="z-index: 900;position: absolute">你好，游客。你可以<a href="user/login.html">登陆</a>或者<a href="user/register.html">注册</a></p>
+
     <!--球模型-->
     <div style="position:absolute;left:-300px;top:0;z-index: 800;display: none" id="globe"></div>
     <!--进度条-->
-    <div id="wrapper" style="position: absolute;padding-left: 25%;padding-right:55%;padding-top:330px;z-index: 802">
+    <div id="wrapper" style="position: relative;padding-left: 25%;padding-right:55%;padding-top:330px;z-index: 802">
         <div class="progress progress-striped active" >
             <div id="prog" class="progress-bar progress-bar-striped progress-bar-animated" style="width:0%"></div>
         </div>
@@ -32,7 +34,6 @@
             <div style="width: 25%;float: right;display: inline;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;font-size: small">2020/4/11/15:22</div>
         </div>
         <div class="card-body" style="text-overflow: ellipsis;overflow: hidden;white-space: normal">
-            22222
         </div>
     </div>
 
@@ -94,6 +95,8 @@
         </div>
     </form>
     <iframe name="posthere" style="display: none"></iframe>
+
+    <button type="button" id="view_all" style="z-index: 900;position: absolute">view all comment</button>
 
     <!-- 球模型代码 -->
     <script type="text/javascript" src="globe/third-party/Detector.js"></script>

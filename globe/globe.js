@@ -22,8 +22,8 @@ DAT.Globe = function(container, opts) {
     return c;
   };
   // 地球背景图片位置
-  var imgDir = opts.imgDir || '/EL-programming/globe/';
-  // var imgDir = opts.imgDir || '/globe/';
+  // var imgDir = opts.imgDir || '/EL-programming/globe/';
+  var imgDir = opts.imgDir || 'globe/';
 
   var Shaders = {
     'earth' : {

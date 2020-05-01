@@ -10,11 +10,9 @@ if (mysqli_num_rows($result) > 0) {
         $GLOBALS["name"] = $row["name"];
         $GLOBALS["text"] = $row["text"];
         $GLOBALS["time"] = $row["time"];
-
     }
     echo $GLOBALS["name"];
 }else {
     echo "0 result";
 }
-
 ?>

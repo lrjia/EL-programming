@@ -6,10 +6,6 @@ function is_valid(){
         alert("Please enter your name.");
         return false;
     }
-    //输入姓名超过20个字符
-    else if(user_name.length() > 20){
-        alert("Max length of name is 20.");
-    }
     //输入评论为空
     var user_comment = document.forms["user_comment"]["comment-text"].value;
     if (user_comment === ""){
@@ -35,18 +31,18 @@ function is_valid(){
 
 // 进度条（伪）
 $("#wrapper").ready(function() {
-    var value = 0;
-    setInterval(function (e) {
-        if (value < 240) {
-            value = parseInt(value) + 2;
-            $("#prog").css("width", value + "%");
-        }
-        else if(value >= 240){
-            $("#wrapper").fadeOut();
-            $("#globe").fadeIn(1000);
-        }
-    }, 30);
-}
+        var value = 0;
+        setInterval(function (e) {
+            if (value < 240) {
+                value = parseInt(value) + 2;
+                $("#prog").css("width", value + "%");
+            }
+            else if(value >= 240){
+                $("#wrapper").fadeOut();
+                $("#globe").fadeIn(1000);
+            }
+        }, 30);
+    }
 );
 
 //滚动显示评论区
@@ -56,8 +52,8 @@ $("#wrapper").ready(function() {
 //     });
 // });
 
-$("#submit").click(function () {
-
+$("#view_all").click(function () {
+    window.location.href="../user/allcomment.php";
 })
 
 
@@ -102,14 +98,14 @@ var top2 = parseFloat(com2.style.top);
 var top3 = parseFloat(com3.style.top);
 $("#com1").ready(function () {
         $("#com1").fadeIn(1000);
-    setInterval(function () {
-        $("#com1").fadeIn(1000);
-        $("#com1").fadeOut(1000);
-        top1 += 500;
-        com1.style.top = top1 + "px";
-        //重新载入新数据等
+        setInterval(function () {
+            $("#com1").fadeIn(1000);
+            $("#com1").fadeOut(1000);
+            top1 += 500;
+            com1.style.top = top1 + "px";
+            //重新载入新数据等
 
-    },5000);
-}
+        },5000);
+    }
 );
 

@@ -38,6 +38,11 @@
             overflow: hidden;
         }
 
+        #timeline img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         #bottom {
             z-index: 900;
             position: absolute;
@@ -311,7 +316,7 @@
     <!-- 时间轴 -->
     <div id="bottom">
         <div class="ui-draggable" id="draggable" style="left: 110px; position: relative;">
-            <p id="draggable_p" style="text-align: center;">2020/1/30</p>
+            <p id="draggable_p" style="text-align: center;color: antiquewhite;">2020/1/30</p>
             <!-- 可以用用图片替代下面的%% -->
             <p class="handler" id="handler">
             </p>

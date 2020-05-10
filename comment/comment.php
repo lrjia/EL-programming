@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['user'])){
+	echo '<script>alert("请先登陆")</script>';
+	exit;
+}
 //连接数据库
 $con = mysqli_connect("localhost","ELcomment","mAwDK7B4ZfwETPz3", "ELcomment");
 // 检测连接
@@ -17,8 +21,12 @@ $sql = "INSERT INTO comment (name ,text ,time)
 VALUES ('$name','$comment','$time');"
 ;
 if (mysqli_query($con, $sql)) {
-    echo "success";
+    echo '<script>
+    alert("success")
+    </script>';
 } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($con);
+    echo '<script>
+    alert("failed")
+    </script>';
 }
 ?>

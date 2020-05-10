@@ -10,10 +10,14 @@
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-
 <body >
-<p style="z-index: 900;position: absolute">你好，游客。你可以<a href="user/login.html">登陆</a>或者<a href="user/register.html">注册</a></p>
+<?
+	if(!isset($_SESSION['user'])){}
+	echo '<p style="z-index: 900;position: absolute;right:10%"><a href="user/login.html">登陆</a>		<a href="user/register.html">注册</a></p>';
 
+
+echo "<p>HI</p>";
+?>
 <!--球模型-->
 <div style="position:absolute;left:-300px;top:0;z-index: 800;display: none" id="globe"></div>
 <!--进度条-->
@@ -59,12 +63,13 @@
 <!--            1111-->
 <!--        </div>-->
 <!--    </div>-->
-<iframe src="user/allcomment.php" style="position: absolute;left: 60%;width: 30%;height: 60%;top: 10%;border:none"></iframe>
+<iframe src="user/allcomment.php" style="position: absolute;left: 60%;width: 30%;height: 60%;top: 10%;border:none" id="view_comment"></iframe>
 
 
 
 <!--评论按钮-->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#CommentModal" style="position:absolute;left:1000px;top:500px;z-index: 801;" >comment</button>
+
 <form action="comment/comment.php" method="post" target="posthere" onsubmit="return is_valid()" name="user_comment" >
     <div class="modal fade" id="CommentModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

@@ -82,7 +82,7 @@ function initDrag(){
 var countx = 2;
 function countDown() {
     //写一个方法，显示倒数秒数  数到0后跳转页面  
-    //没执行一次，count减1
+    //每执行一次，count减1
     countx -= 1;
     //count=0时，跳转页面
     if (countx == 0) {

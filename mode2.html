@@ -4,12 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Global Pandemi     c mode2</title>
+    <title>Global Pandemic mode2</title>
 
 </head>
 <style>
   body {
   background-image: url("styles/images/starrysky.jpg") !important
+}
+#introduction
+{
+  bottom: 0;
 }
 </style>
 
@@ -17,7 +21,7 @@
 <body style=' cursor: auto;' ondragstart="window.event.returnValue=false"
     oncontextmenu="window.event.returnValue=false">
     <div style="position:absolute;left:0;top:0;z-index: 800;" id="globe"></div>
-    <div style="position:absolute;z-index: 900;left:0%;top: 0%;">
+    <div id="returnButton" style="position:absolute;z-index: 950;left:0%;top: 0%;">
       <!-- 美化的返回按钮 -->
       <svg style="width: 300px; visibility: visible; position: absolute;" viewBox="0 0 800 600">
           <defs>
@@ -272,8 +276,6 @@
       <!-- 美化的返回按钮,到这里结束，有点长 -->
   </div>
     <div style="position:absolute;z-index: 900;">
-        <button  id="returnButton" >返回</button>
-        <p></p>
         <button class="btn" id="nextButton" >
         <label>下一个</label>    
         </button>
@@ -310,6 +312,7 @@
   width: 150px;
   height: 50px;
   position: relative;
+  top: 300px;
 }
 
 .btn label {
@@ -364,6 +367,11 @@
   height: calc(100% + 4px);
 }
     </style>
+
+    <!-- partial -->
+    <script src="scripts/TweenMax.min.js"></script>
+    <script src="scripts/MorphSVGPlugin.min.js"></script>
+    <script src="scripts/script.js"></script>
     <!-- 球模型代码 -->
     <script type="text/javascript" src="globe/third-party/Detector.js"></script>
     <script type="text/javascript" src="globe/third-party/three.min.js"></script>

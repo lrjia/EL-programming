@@ -10,6 +10,8 @@
             background-image: url("styles/images/starrysky.jpg") !important
         }
 
+       
+        
         #draggable {
             width: 120px;
             height: 45px;
@@ -313,6 +315,31 @@
         <!-- 美化的返回按钮,到这里结束，有点长 -->
     </div>
 
+    <!-- 截图功能的按钮 -->
+    <div  style="position: absolute;left: 0;top: 300px;z-index: 1500;">
+    <p>
+    <input type="button"id="getshot" onclick="al()" value="选择时间段"/>
+    </div>
+    <!--没用就删-->
+    <script>
+        var endFlag=0
+        function al()
+        {
+            if(endFlag==0)
+            {
+            document.body.insertAdjacentHTML('afterend','<input type=text>')
+            document.body.insertAdjacentHTML('afterend','<input type=text>')
+            endFlag=1
+            document.getElementById("getshot").value="截图";
+            }
+            else
+            return
+           
+        }
+    </script>
+
+
+
     <!-- 时间轴 -->
     <div id="bottom">
         <div class="ui-draggable" id="draggable" style="left: 110px; position: relative;">
@@ -327,9 +354,7 @@
         <div id="timeline">
             <img alt="timeline" src="styles/images/timeline.png">
         </div>
-        <p></p>
-        <button id="getShot">截图</button>
-
+        
     </div>
 
     <!-- 时间轴style 临时 -->

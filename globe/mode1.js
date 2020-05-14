@@ -29,7 +29,7 @@ if (!Detector.webgl) {
             globe.createPoints();
             settime(globe, 0)();
             globe.animate();
-            document.body.style.backgroundImage = 'none'; // remove loading
+            // document.body.style.backgroundImage = 'none'; // remove loading
 
             // 在数据加载完成后，启动时间轴，截图，
             initDrag();
@@ -61,8 +61,12 @@ function initDrag(){
             cursor: "move",
             handle: "p.handler",
             axis: "x",
+            containment: "parent",
             drag: function () {
-                preOrder=Math.floor(parseInt(timetable.style.left) / (window.innerWidth / (totalDay)/1.5)) % totalDay;
+                preOrder=Math.floor(parseInt(timetable.style.left) / (window.innerWidth / (totalDay)/1.15));
+                if (preOrder>totalDay){
+                    preOrder=totalDay;
+                }
                 if (preOrder != order) {
                     order = preOrder
                     settime(globe, order)();

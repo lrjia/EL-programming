@@ -46,6 +46,8 @@ let preButton = document.getElementById("preButton");
 let introduction = document.getElementById("introduction");
 let nodeImage=document.getElementById("nodeImage");
 
+//我自己加的在这里
+let nodeVoice=document.getElementById("media");
 
 let nodeNow = 0;
 // 按钮函数
@@ -72,7 +74,13 @@ function buttonFunc(next, totalDay) {
         // 节点的文字介绍
         introduction.textContent = nodeDate.toDateString();
         let imageSrc="styles/images/mode2/"+nodes[nodeNow]+".png";
+        let voiceSrc="styles/voice/"+nodes[nodeNow]+".mp3";
         nodeImage.setAttribute('src', imageSrc);
+        
+        //这里的src没有变？
+        nodeVoice.setAttribute('src',voiceSrc);
+        
+        
         // debugger;
         settime(globe, timenow)();
     }

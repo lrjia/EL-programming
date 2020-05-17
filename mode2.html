@@ -4,19 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="#"/>
     <title>Global Pandemic mode2</title>
-
 </head>
-<style>
-  body {
-  background-image: url("styles/images/starrysky.jpg") !important
-}
-#introduction
-{
-  bottom: 0;
-}
-</style>
-
 
 <body style=' cursor: auto;' ondragstart="window.event.returnValue=false"
     oncontextmenu="window.event.returnValue=false">
@@ -287,20 +277,41 @@
         <p id="introduction">Sun Dec 01 2019</p>
         <div id="imagpos">
         <img id="nodeImage" src="styles/images/mode2/2019-12-01.png">
+        <p class="weixinAudio" onclick="play()" >
+            <audio src='styles/voice/2019-12-01.mp3' id="media" width="1" height="1"></audio>
+            <span id="audio_area" class="db audio_area">
+            <span class="audio_wrp db">
+            <span class="audio_play_area">
+                <i class="icon_audio_default"></i>
+                <i class="icon_audio_playing"></i>
+            </span>
+            </span>
+        </p>
+    
     </div>
     </div>
  
-    <style>
-        #imagpos
-        {
-            position:absolute;
-            position:fixed !important;
-            z-index:auto;
-            bottom:0px;
-            width:100%;
-            text-align: right;
-        }
-        .btn {
+<style>
+body {
+background-image: url("styles/images/starrysky.jpg") !important
+}
+#introduction
+{
+color: aliceblue;
+bottom: 0;
+position: relative;
+top: 290px;
+}
+#imagpos
+{
+position:absolute;
+position:fixed !important;
+z-index:auto;
+bottom:0px;
+width:100%;
+text-align: right;
+}
+.btn {
   background: none;
   border: 0;
   outline: 0;
@@ -366,12 +377,109 @@
   width: calc(100% + 4px);
   height: calc(100% + 4px);
 }
-    </style>
+.db {
+	display: block;
+}
+
+.weixinAudio {
+width: 310px;
+height: 50px;
+cursor: pointer;
+z-index: 1500;
+position: relative;
+}
+
+		.audio_area {
+			display: inline-block;
+			width: 100%;
+			vertical-align: top;
+			margin: 0px 1px 0px 0;
+			font-size: 0;
+			position: relative;
+			font-weight: 400;
+			text-decoration: none;
+			-ms-text-size-adjust: none;
+			-webkit-text-size-adjust: none;
+			text-size-adjust: none;
+		}
+
+		.audio_wrp {
+			border: 1px solid #ebebeb;
+			background-color: #0cbb08;
+			overflow: hidden;
+			padding: 12px 20px 12px 12px;
+		}
+
+		.audio_play_area {
+			float: left;
+			margin: 9px 22px 10px 5px;
+			font-size: 0;
+			width: 18px;
+			height: 25px;
+		}
+
+		.playing .audio_play_area .icon_audio_default {
+			display: block;
+		}
+
+		.audio_play_area .icon_audio_default {
+			background: transparent url(styles/images/iconloop.png) no-repeat 0 0;
+			width: 18px;
+			height: 25px;
+			vertical-align: middle;
+			display: inline-block;
+			-webkit-background-size: 54px 25px;
+			background-size: 54px 25px;
+			background-position: -36px center;
+		}
+
+		.audio_play_area .icon_audio_playing {
+			background: transparent url(styles/images/iconloop.png) no-repeat 0 0;
+			width: 18px;
+			height: 25px;
+			vertical-align: middle;
+			display: inline-block;
+			-webkit-background-size: 54px 25px;
+			background-size: 54px 25px;
+			-webkit-animation: audio_playing 1s infinite;
+			background-position: 0px center;
+			display: none;
+		}
+
+		.audio_area .pic_audio_default {
+			display: none;
+			width: 18px;
+		}
+
+		.tips_global {
+			color: #8c8c8c;
+		}
+
+		.audio_area .audio_length {
+			float: right;
+			font-size: 14px;
+			margin-top: 3px;
+			margin-left: 1em;
+		}
+
+		.audio_info_area {
+			overflow: hidden;
+		}
+
+	
+</style>
+
 
     <!-- partial -->
     <script src="scripts/TweenMax.min.js"></script>
     <script src="scripts/MorphSVGPlugin.min.js"></script>
     <script src="scripts/script.js"></script>
+    <script>
+        function play()
+        {
+            document.getElementById("media").play();
+        }
+    </script>
     <!-- 球模型代码 -->
     <script type="text/javascript" src="globe/third-party/Detector.js"></script>
     <script type="text/javascript" src="globe/third-party/three.min.js"></script>

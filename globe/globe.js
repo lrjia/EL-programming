@@ -11,6 +11,8 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Modified by Aodhan Sweeney
+ * 
+ * Modified by lrjia
  */
 
 var DAT = DAT || {};
@@ -472,6 +474,15 @@ DAT.Globe = function (container) {
   this.createPoints = createPoints;
   this.renderer = renderer;
   this.scene = scene;
+
+// 截图函数
+  function shot() {
+    renderer.render(scene, camera);//renderer为three.js里的渲染器，scene为场景 camera为相机
+    let imgData = renderer.domElement.toDataURL("image/png");//这里可以选择png格式jpeg格式
+    
+    return imgData;
+  }
+  this.shot=shot;
 
   return this;
 

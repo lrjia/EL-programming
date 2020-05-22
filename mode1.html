@@ -317,27 +317,18 @@
     </div>
 
     <!-- 截图功能的按钮 -->
-    <div  style="position: absolute;left: 0;top: 300px;z-index: 1500;">
-    <p>
-    <input type="button"id="getshot" onclick="al()" value="选择时间段"/>
+    <div style="position: absolute;left: 0;top: 300px;z-index: 1500;">
+        <input type="button" id="getShot" value="截图" />
+        <!-- <div>
+            <label for="stratDate">起始日期:</label>
+            <input type="text" id="stratDate" value="2020-02-06">
+        </div>
+        <div>
+            <label for="endDate">结束日期:</label>
+            <input type="text" id="endDate" value="2020-02-06">
+        </div> -->
     </div>
-    <!--没用就删-->
-    <script>
-        var endFlag=0
-        function al()
-        {
-            if(endFlag==0)
-            {
-            document.body.insertAdjacentHTML('afterend','<input type=text>')
-            document.body.insertAdjacentHTML('afterend','<input type=text>')
-            endFlag=1
-            document.getElementById("getshot").value="截图";
-            }
-            else
-            return
-           
-        }
-    </script>
+    
 
 
 
@@ -379,6 +370,9 @@
     <script src="globe/third-party/jquery-1.9.1.js"></script>
     <script src="globe/third-party/jquery-ui.js"></script>
 
+    <!-- gif生成 -->
+    <script src="globe/third-party/gif.js"></script>
+    <script src="globe/third-party/gif.worker.js"></script>
 </body>
 
 </html>

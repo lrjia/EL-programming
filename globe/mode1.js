@@ -31,7 +31,7 @@ if (!Detector.webgl) {
 
             // 在数据加载完成后，启动时间轴，截图，
             initDrag();
-            // initShot();
+            initShot();
 
 
         }

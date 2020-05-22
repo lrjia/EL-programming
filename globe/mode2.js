@@ -5,6 +5,7 @@ if (!Detector.webgl) {
     var container = document.getElementById('globe');
     var globe = new DAT.Globe(container);
     var totalDay = 0;
+    let data = null;// 储存数据的全局变量
 
     // 加载数据
     var xhr = new XMLHttpRequest();
@@ -12,16 +13,12 @@ if (!Detector.webgl) {
     xhr.onreadystatechange = function (e) {
         if (xhr.readyState === 4 && xhr.status === 200) {
 
-            var data = JSON.parse(xhr.responseText);
+            data = JSON.parse(xhr.responseText);
             window.data = data;
             totalDay = data.length;
-            for (var i = 0; i < data.length; i++) {
-                globe.addData(data[i][1], { format: 'magnitude', name: data[i][0], animated: true });
-            }
+            globe.addData(data[0][1], { format: 'magnitude' });
             globe.createPoints();
-            settime(globe, 0)();
             globe.animate();
-            document.body.style.backgroundImage = 'none'; // remove loading
 
             // 加载完成后使按钮有效
             nextButton.addEventListener("click", buttonFunc(1,totalDay));
@@ -35,7 +32,9 @@ if (!Detector.webgl) {
     TWEEN.start();
     var settime = function (globe, t) {
         return function () {
-            new TWEEN.Tween(globe).to({ time: t / totalDay }, 500).easing(TWEEN.Easing.Cubic.EaseOut).start();
+            globe.resetData();
+            globe.addData(data[t][1], { format: 'magnitude' });
+            globe.createPoints();
         };
     };
 }

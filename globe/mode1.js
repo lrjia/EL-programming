@@ -5,6 +5,7 @@ window.onload = function () {
 }
 
 
+
 // 加载数据，地球
 if (!Detector.webgl) {
     Detector.addGetWebGLMessage();
@@ -13,6 +14,7 @@ if (!Detector.webgl) {
     var container = document.getElementById('globe');
     var globe = new DAT.Globe(container);
     var totalDay = 0;
+    let data = null;// 储存数据的全局变量
 
     // 加载数据
     var xhr = new XMLHttpRequest();
@@ -20,20 +22,18 @@ if (!Detector.webgl) {
     xhr.onreadystatechange = function (e) {
         if (xhr.readyState === 4 && xhr.status === 200) {
 
-            var data = JSON.parse(xhr.responseText);
+            data = JSON.parse(xhr.responseText);
             window.data = data;
             totalDay = data.length;
-            for (var i = 0; i < data.length; i++) {
-                globe.addData(data[i][1], { format: 'magnitude', name: data[i][0], animated: true });
-            }
+            globe.addData(data[0][1], { format: 'magnitude' });
             globe.createPoints();
-            settime(globe, 0)();
             globe.animate();
-            // document.body.style.backgroundImage = 'none'; // remove loading
 
             // 在数据加载完成后，启动时间轴，截图，
             initDrag();
-            initShot();
+            // initShot();
+
+
         }
     };
     xhr.send(null);
@@ -43,14 +43,16 @@ if (!Detector.webgl) {
     TWEEN.start();
     var settime = function (globe, t) {
         return function () {
-            new TWEEN.Tween(globe).to({ time: t / totalDay }, 500).easing(TWEEN.Easing.Cubic.EaseOut).start();
+            globe.resetData();
+            globe.addData(data[t][1], { format: 'magnitude' });
+            globe.createPoints();
         };
-};
+    };
 }
 
 
 //时间轴代码
-function initDrag(){
+function initDrag() {
     var timetable = document.getElementById("draggable");
     var order = 0;
     // 最初的数据日期，如果修改需要更改
@@ -63,20 +65,33 @@ function initDrag(){
             axis: "x",
             containment: "parent",
             drag: function () {
-                preOrder=Math.floor(parseInt(timetable.style.left) / (window.innerWidth / (totalDay)/1.15));
-                if (preOrder>totalDay){
-                    preOrder=totalDay;
+                preOrder = Math.floor(parseInt(timetable.style.left) / (window.innerWidth / (totalDay) / 1.15));
+                if (preOrder > totalDay) {
+                    preOrder = totalDay;
                 }
                 if (preOrder != order) {
                     order = preOrder
-                    settime(globe, order)();
+                    // settime(globe, order)();
                     let words = document.getElementById('draggable_p');
-                    let dateNow=new Date(startDate);
-                    dateNow.setDate(startDate.getDate()+order);
-                    console.log(startDate.getDate()+order);
-                    words.textContent=dateNow.toLocaleDateString();
+                    let dateNow = new Date(startDate);
+                    dateNow.setDate(startDate.getDate() + order);
+                    words.textContent = dateNow.toLocaleDateString();
                 }
             },
+            stop: function () {
+                console.log("in stop");
+                preOrder = Math.floor(parseInt(timetable.style.left) / (window.innerWidth / (totalDay) / 1.15));
+                if (preOrder > totalDay) {
+                    preOrder = totalDay;
+                }
+
+                settime(globe, order)();
+                let words = document.getElementById('draggable_p');
+                let dateNow = new Date(startDate);
+                dateNow.setDate(startDate.getDate() + order);
+                words.textContent = dateNow.toLocaleDateString();
+
+            }
         });
     });
 }

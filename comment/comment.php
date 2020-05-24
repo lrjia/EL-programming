@@ -1,6 +1,6 @@
 <?php
-session_start();
-//if(!isset($_SESSION['user'])){
+//session_start();
+//if(!isset($_SSSION['user'])){
 //	echo '<script>alert("请先登陆")</script>';
 //	exit;
 //}

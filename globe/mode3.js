@@ -13,7 +13,11 @@ function is_valid(){
         return false;
     }
 
-    document.getElementById('view_comment').contentWindow.location.reload();
+    setTimeout(function(){
+        document.getElementById('view_comment').contentWindow.location.reload();
+    },1000);
+
+    // document.getElementById('view_comment').contentWindow.location.reload();
     //成功弹出提示框并退出窗口
     // var html_success = "<div class=\"alert alert-success alert-dismissible fade show\">\n" +
     //     "  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" id='close_button_in_alert'>&times;</button>\n" +

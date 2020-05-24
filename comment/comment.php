@@ -1,9 +1,9 @@
 <?php
 session_start();
-if(!isset($_SESSION['user'])){
-	echo '<script>alert("请先登陆")</script>';
-	exit;
-}
+//if(!isset($_SESSION['user'])){
+//	echo '<script>alert("请先登陆")</script>';
+//	exit;
+//}
 //连接数据库
 $con = mysqli_connect("localhost","ELcomment","mAwDK7B4ZfwETPz3", "ELcomment");
 // 检测连接

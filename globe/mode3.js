@@ -48,43 +48,12 @@ $("#wrapper").ready(function() {
     }
 );
 
-//滚动显示评论区
-// $("slides").ready(function () {
-//     $.get("show_comment.php", function(data){
-//         alert("数据: " + data + "\n");
-//     });
-// });
 
 $("#view_all").click(function () {
-    window.location.href="../user/allcomment.php";
+    window.location.href="../comment/user/allcomment.php";
 })
 
 
-
-//show comment
-// window.onLoad() = function ShowComment()
-// {
-//     if (window.XMLHttpRequest)
-//     {
-//         // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-//         xmlhttp=new XMLHttpRequest();
-//     }
-//     else
-//     {
-//         // IE6, IE5 浏览器执行代码
-//         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-//     }
-//     xmlhttp.onreadystatechange=function()
-//     {
-//         if (xmlhttp.readyState==4 && xmlhttp.status==200)
-//         {
-//             document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
-//         }
-//     }
-//     xmlhttp.open("GET","./comment/show_comment.php",true);
-//     xmlhttp.send();
-//
-// }
 
 
 //冒泡提示
@@ -92,30 +61,3 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 })
 
-// //评论区
-// var com1 = document.getElementById("com1");
-// var com2 = document.getElementById("com2");
-// var com3 = document.getElementById("com3");
-// var top1 = parseFloat(com1.style.top);
-// var top2 = parseFloat(com2.style.top);
-// var top3 = parseFloat(com3.style.top);
-// $("#com1").ready(function () {
-//         $("#com1").fadeIn(1000);
-//         setInterval(function () {
-//             $("#com1").fadeIn(1000);
-//             $("#com1").fadeOut(1000);
-//             top1 += 500;
-//             com1.style.top = top1 + "px";
-//             //重新载入新数据等
-//
-//         },5000);
-//     }
-// );
-
-// $("#submit").click(function () {
-//     var user_name = document.forms["user_comment"]["user-name"].value;
-//     var user_comment = document.forms["user_comment"]["comment-text"].value;
-
-//     alert("HI");
-//     return false;
-// });

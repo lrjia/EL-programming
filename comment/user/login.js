@@ -16,7 +16,7 @@ $("#login").click(function () {
         }
         if(data == 1){
             alert("success");
-            window.location.href="../index.html";
+            window.location.href="../../index.html";
             return false;
         }
 

@@ -9,6 +9,72 @@
         body {
             background-image: url("styles/images/starrysky.jpg") !important
         }
+        .shotBtn {
+            background: none;
+            border: 0;
+            outline: 0;
+            color: rgb(26, 88, 124);
+            font-family: 'JetBrains Mono';
+            font-size: 20px;
+            cursor: pointer;
+            border: 4px solid aquamarine;
+            width: 150px;
+            height: 50px;
+            position: relative;
+            top: 300px;
+            }
+
+            .shotBtn label {
+            position: absolute;
+            left: 0;
+            top: 0;
+            line-height: 50px;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-color: rgb(114, 114, 114);
+            }
+
+            .shotBtn::before {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: -4px;
+            width: 0px;
+            height: 0;
+            z-index: 0;
+            background-color: brown;
+            transition: width .5s,height .5s;
+            }
+
+            .shotBtn::after {
+            content: '';
+            position: absolute;
+            right: -4px;
+            bottom: -4px;
+            width: 0;
+            height: 0;
+            z-index: 0;
+            background-color: brown;
+            transition: width .5s,height .5s;
+
+            /* width: calc(100% + 4px);
+            height: calc(100% + 4px); */
+            }
+
+            .shotBtn:hover {
+            color: brown;
+            }
+
+            .shotBtn:hover::before {
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            }
+
+            .shotBtn:hover::after {
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            }
 
        
         
@@ -317,8 +383,9 @@
     </div>
 
     <!-- 截图功能的按钮 -->
-    <div style="position: absolute;left: 0;top: 300px;z-index: 1500;">
-        <input type="button" id="getShot" value="截图" />
+    <div style="position: absolute;z-index: 1500;">
+        <button type="button" class="shotBtn" id="getShot">
+            <label>截图</label>    
         <!-- <div>
             <label for="stratDate">起始日期:</label>
             <input type="text" id="stratDate" value="2020-02-06">
@@ -342,9 +409,6 @@
             <img alt="timeline" src="styles/images/timeline.png">
         </div>
     </div>
-
-    <!-- 时间轴style 临时 -->
-
 
 
 

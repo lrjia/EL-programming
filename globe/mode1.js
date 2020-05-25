@@ -65,7 +65,8 @@ function initDrag() {
             axis: "x",
             containment: "parent",
             drag: function () {
-                preOrder = Math.floor(parseInt(timetable.style.left) / (window.innerWidth / (totalDay) / 1.15));
+                // preOrder = Math.floor(parseInt(timetable.style.left) / (window.innerWidth / (totalDay) / 1.15));
+                preOrder = Math.floor(parseInt(timetable.style.left) / (window.innerWidth / (totalDay) ));
                 if (preOrder > totalDay) {
                     preOrder = totalDay;
                 }
@@ -79,7 +80,7 @@ function initDrag() {
                 }
             },
             stop: function () {
-                console.log("in stop");
+                // console.log("in stop");
                 preOrder = Math.floor(parseInt(timetable.style.left) / (window.innerWidth / (totalDay) / 1.15));
                 if (preOrder > totalDay) {
                     preOrder = totalDay;
@@ -116,7 +117,7 @@ function countDown() {
 
 function initShot() {
     function takeShot() {
-        console.log("in");
+        // console.log("in");
         let imgUrl = globe.shot();
         let a = $("<a></a>").attr("href", imgUrl).attr("download", "img.png").appendTo("body");
         a[0].click();

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Global Pandemic</title>
+  <link href="styles/style.css" rel="stylesheet" type="text/css">
+  <script src="scripts/jquery.min.js" type="text/javascript"></script>
+  <script src="scripts/event.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="styles/sweetalert.css">
+  <script type="text/javascript" src="scripts/sweetalert-dev.js"></script>
+</head>
+
+<audio src="styles/music/music.mp3" autoplay="autoplay"  loop=-1 id="ado" ></audio>
+
+
+<script>
+  swal({ 
+		title: "是否打开背景音乐？", 
+		text: "打开之后体验更佳哦！", 
+		showCancelButton: true, 
+		confirmButtonColor: "#2ae0c8",
+		confirmButtonText: "打开", 
+		cancelButtonText: "取消",
+    closeOnConfirm: true, 
+		closeOnCancel: true	
+		},
+    function(isConfirm)
+    { 
+    if (isConfirm) { play();}
+    else{pause();}
+    }
+  )
+    function play()
+    {
+      document.getElementById("ado").play();
+    }
+    function pause()
+    {
+      document.getElementById("ado").pause();
+    }
+</script>
+
+
+
+<body ondragstart="window.event.returnValue=false" oncontextmenu="window.event.returnValue=false"
+onselectstart="event.returnValue=false">
+<div class="header" id="container" >
+  <div class="topcn" >
+      <h1 id="h1">Global Pandemic</h1>
+  </div>
+<div class="button">
+   <p onclick=jumpToMode2() onmouseover="btnIn1()" onmouseout="btnOut1()">
+      <span></span> 
+      <span></span>
+      <span></span>
+      <span></span>
+      节点模式
+   </p>
+   <p onclick=jumpToMode1() onmouseover="btnIn()" onmouseout="btnOut()">
+    <span></span> 
+    <span></span>
+    <span></span>
+    <span></span>
+    标准模式
+   </p>
+   <p onclick=jumpToMode3()  onmouseover="btnIn2()" onmouseout="btnOut2()">
+    <span></span> 
+    <span></span>
+    <span></span>
+    <span></span>
+    寄语模式
+   </p>
+</div>
+   
+
+    <div class="showimg" id="fade">
+      <img src="styles/images/标准模式.png">
+    </div>
+    <div class="showimg1" id="fade1">
+      <img src="styles/images/节点模式.png">
+    </div>
+    <div class="showimg2" id="fade2">
+      <img src="styles/images/寄语模式.png">
+    </div>
+    
+  <div class="canvaszz"> </div>
+  <canvas id="canvas"></canvas>
+  <script src="scripts/bootstrapmb.com.js"></script>
+  
+    <!-- 球模型在这里 -->
+  <div style="position:absolute;left:0;top:0;z-index:850;" id="globe"></div>
+</div>
+  <!-----HEADER END----->
+
+<script>
+  function jumpToMode1() {
+    window.location.replace('mode1.html')
+    }
+function jumpToMode2() {
+    window.location.replace('mode2.html')
+    }
+function jumpToMode3() {
+    window.location.replace('mode3.html')
+    }
+</script>
+  <!-- 特效的script -->
+<script src="scripts/main.js"></script>
+</body>
+</html>

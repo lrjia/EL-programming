@@ -1,0 +1,287 @@
+@import "fadein.css";/*淡入*/
+
+
+body {
+    margin:0 auto;
+    overflow:hidden;
+    
+} 
+
+.header{
+	margin:0 auto;
+	width:100%;
+    height:890px;
+	background-color:rgb(0, 0, 0);
+	position:relative;
+  }
+
+
+
+.header	.topcn{
+    z-index:860;
+    font-size:80px;
+    font-family: "fantasy";
+    color:rgb(150, 8, 8);
+    text-align:center;
+    width: 100%;
+    top:60px;
+    margin: 0 auto;
+    position:absolute;
+
+  }
+
+.button
+{
+    position: absolute;
+    top: 50%;
+    left: 33.3%;
+    z-index:1000;
+}
+ .header p
+{
+    position: relative;
+    transform: translate(-50%,-50%);
+    color:#1670f0;
+    padding: 30px 60px;
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    overflow: hidden;
+    float: left;
+    cursor: pointer;
+}
+
+p::before
+{
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+    width: 50%;
+    background:rgb(255,255,255,0.05);
+
+}
+p span:nth-child(1)
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background:linear-gradient(to right,#0c002b,#1779ff);
+    animation:animate1 2s linear infinite ;
+}
+@keyframes animate1
+{
+    0%
+    {
+        transform: translateX(-100%);
+    }
+    100%
+    {
+        transform: translateX(100%);
+    }
+}
+p span:nth-child(2)
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background:linear-gradient(to bottom,#0c002b,#1779ff);
+    animation:animate2 2s linear infinite ;
+}
+@keyframes animate2
+{
+    0%
+    {
+        transform: translateY(-100%);
+    }
+    100%
+    {
+        transform: translateY(100%);
+    }
+}
+p span:nth-child(3)
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width:100%;
+    height: 2px;
+    background:linear-gradient(to left,#0c002b,#1779ff);
+    animation:animate3 2s linear infinite ;
+}
+@keyframes animate3
+{
+    0%
+    {
+        transform: translateX(100%);
+    }
+    100%
+    {
+        transform: translateX(-100%);
+    }
+}
+p span:nth-child(4)
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background:linear-gradient(to top,#0c002b,#1779ff);
+    animation:animate4 2s linear infinite ;
+}
+@keyframes animate4
+{
+    0%
+    {
+        transform: translateY(100%);
+    }
+    100%
+    {
+        transform: translateY(-100%);
+    }
+}
+  
+
+.header .showimg,.showimg1,.showimg2
+{
+    position:absolute;
+    position:fixed !important;
+    z-index:99;
+    bottom:0px;
+    width:100%;
+    text-align: right;
+    opacity: 0;
+}
+
+
+
+.header canvas {
+  width:100%;
+    height:890px;
+  display:inline-block;
+
+  }
+
+.header .canvaszz{  /*将星空设为背景图片，调整不透明度使显现宇宙特效*/
+  width:100%;
+  background-image: url(images/sky.jpg);
+  height:890px;
+  position:absolute;
+  z-index:10;
+    filter:alpha(opacity=30);  
+        -moz-opacity:0.3;  
+        -khtml-opacity: 0.3;  
+        opacity: 0.3;
+  }
+
+  
+  
+  
+  h1{
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-shadow: 0 0 25px rgba(254,254,255,0.85);
+      
+  }
+  
+  
+  [class^="letter"] {
+      -webkit-transition: opacity 3s ease;
+      -moz-transition: opacity 3s ease;
+      transition: opacity 3s ease;
+  }
+  
+  .letter-0 {
+      transition-delay: 0.2s;
+  }
+  
+  .letter-1 {
+      transition-delay: 0.4s;
+  }
+  
+  .letter-2 {
+      transition-delay: 0.6s;
+  }
+  
+  .letter-3 {
+      transition-delay: 0.8s;
+  }
+  
+  .letter-4 {
+      transition-delay: 1.0s;
+  }
+  
+  .letter-5 {
+      transition-delay: 1.2s;
+  }
+  
+  .letter-6 {
+      transition-delay: 1.4s;
+  }
+  
+  .letter-7 {
+      transition-delay: 1.6s;
+  }
+  
+  .letter-8 {
+      transition-delay: 1.8s;
+  }
+  
+  .letter-9 {
+      transition-delay: 2.0s;
+  }
+  
+  .letter-10 {
+      transition-delay: 2.2s;
+  }
+  
+  .letter-11 {
+      transition-delay: 2.4s;
+  }
+  
+  .letter-12 {
+      transition-delay: 2.6s;
+  }
+  
+  .letter-13 {
+      transition-delay: 2.8s;
+  }
+  
+  .letter-14 {
+      transition-delay: 3.0s;
+  }
+
+  h1{
+      visibility: hidden;
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+  }
+  
+      h1.transition-in{
+          visibility: visible;
+      }
+  
+      h1 [class^="letter"]{
+          opacity: 0;
+      }
+  
+      h1.transition-in [class^="letter"]{
+          opacity: 1;
+      }
+
+
+
+
+
+
+
+
+

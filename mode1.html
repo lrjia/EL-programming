@@ -79,45 +79,51 @@
        
         
         #draggable {
-            width: 120px;
+            width: 100px;
             height: 45px;
-            padding: 0.5em;
-            border: 3px solid;
+            padding:0;
+            border: 10px solid;
             border-color: #FF4200;
+            box-shadow: 0 0 15px 5px #0072FF; 
         }
 
-        #handler {
-            width: 0px;
-            height: 30px;
-            padding: 0.5em;
-            border: 5px solid;
-            border-color: blanchedalmond;
-            box-shadow: 0 0 30px rgb(112, 4, 4);
-            padding: 10px
-        }
 
-        #timeline {
-            background-color: #182121;
-            position: absolute;
-            position: fixed !important;
-            z-index: auto;
-            width: 100%;
-            text-align: left;
-            overflow: hidden;
-        }
-
-        #timeline img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
         #bottom {
             z-index: 900;
             position: absolute;
-            bottom: 60px;
+            bottom: 0px;
             width: 99%;
         }
-    </style>
+
+    #timeline
+    {
+        bottom: 0;
+    }
+#demo { 
+    width: 100%;z-index: auto; 
+    display: flex; align-items: center; 
+}
+
+#demo .progress { 
+    width: 100%; height: 10px; border-radius: 3px; 
+    background: #F1F5FD; 
+}
+
+#demo .progress .progress-bar { 
+    width: 115px; height: 100%; border-radius: 3px; 
+    background:red; 
+}
+
+.handler{ 
+    width: 10px; height: 80px;border: 0;padding: 0;
+    margin-bottom: -20px;
+    margin-top: -1px;
+    background-color: #FF4200;
+    float: right; 
+    position: relative; left: 10px; top: -10px; 
+    text-size-adjust: 1em;
+}
+</style>
 </head>
 
 <body style=' cursor: auto;' ondragstart="window.event.returnValue=false"
@@ -394,25 +400,75 @@
             <label for="endDate">结束日期:</label>
             <input type="text" id="endDate" value="2020-02-06">
         </div> -->
-    </div>
     
+    
+    </div>
+    <div style="position: absolute;  top: 310px;color: antiquewhite;">
+          <p>拖动旗杆改变时间</p>
+    </div>
+  
 
 
 
     <!-- 时间轴 -->
     <div id="bottom">
-        <div class="ui-draggable" id="draggable" style="left: 110px; position: relative;">
-            <p id="draggable_p" style="text-align: center;color: antiquewhite;">2020/1/30</p>
+        <div class="ui-draggable" id="draggable">
+            <p id="draggable_p" style="text-align: center;color: antiquewhite;">2020/1/22</p>
             <p class="handler" id="handler"></p>
         </div>
         <div id="timeline">
-            <img alt="timeline" src="styles/images/timeline.png">
+            <div id="demo">
+                <div class="progress">
+                    <div class="progress-bar">
+                    </div>
+                </div>
         </div>
     </div>
 
 
-
-
+    <script>     
+     var sign=document.getElementById('handler')
+        var slider = {
+            use: function(id) {
+                var self = this;
+                self.slider = document.getElementById(id);
+                self.bar = self.slider.querySelector('.progress-bar');
+                self.thumb = self.slider.querySelector('.handler');
+                sign.addEventListener('mousedown', function(e) {
+                    if (e.button == 0) { // 判断点击左键
+                        self.mDown = true;
+                        self.beginX = e.clientX;
+                        self.positionX = e.offsetX;
+                        self.beginClientX = e.clientX;
+                        self.sliderLong = parseInt(self.getStyle(self.slider, 'width'));
+                        var per = parseInt(self.positionX / self.sliderLong * 100);
+                        self.bar.style.width = per + '%';
+                    }
+                });
+                document.addEventListener('mousemove', function(e) {
+                    if (self.mDown) {
+                        var moveX = e.clientX - self.beginClientX;
+                        self.positionX = (self.beginX + moveX > self.sliderLong) ? self.sliderLong : (self.beginX + moveX < 0) ? 0 : self.beginX + moveX;
+                        var per = parseInt(self.positionX / self.sliderLong * 100);
+                        self.bar.style.width = per + '%';
+                    }
+                });
+                document.addEventListener('mouseup', function(e) {
+                    if (e.button == 0) { 
+                        self.mDown = false;
+                    }
+                });
+            },
+            getStyle: function(obj,styleName){ // 获取元素样式的方法
+                if(obj.currentStyle){
+                    return obj.currentStyle[styleName];
+                }else{
+                    return getComputedStyle(obj,null)[styleName];
+                }
+            }
+        };
+        slider.use('demo');
+    </script>
     <!-- partial -->
     <script src="scripts/TweenMax.min.js"></script>
     <script src="scripts/MorphSVGPlugin.min.js"></script>

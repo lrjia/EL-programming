@@ -61,12 +61,12 @@ function initDrag() {
     $(function () {
         $('#draggable').draggable({
             cursor: "move",
-            handle: "p.handler",
+            // handle: "p.handler",
             axis: "x",
             containment: "parent",
             drag: function () {
                 // preOrder = Math.floor(parseInt(timetable.style.left) / (window.innerWidth / (totalDay) / 1.15));
-                preOrder = Math.floor(parseInt(timetable.style.left) / (window.innerWidth / (totalDay) ));
+                preOrder = Math.floor((parseInt(timetable.style.left)+120) / (window.innerWidth / (totalDay) ));
                 if (preOrder > totalDay) {
                     preOrder = totalDay;
                 }
@@ -81,7 +81,7 @@ function initDrag() {
             },
             stop: function () {
                 // console.log("in stop");
-                preOrder = Math.floor(parseInt(timetable.style.left) / (window.innerWidth / (totalDay) / 1.15));
+                preOrder = Math.floor((parseInt(timetable.style.left)+120) / (window.innerWidth / (totalDay)));
                 if (preOrder > totalDay) {
                     preOrder = totalDay;
                 }

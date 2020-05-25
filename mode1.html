@@ -419,7 +419,7 @@
         <div id="timeline">
             <div id="demo">
                 <div class="progress">
-                    <div class="progress-bar">
+                    <div class="progress-bar" id="">
                     </div>
                 </div>
         </div>
@@ -427,7 +427,8 @@
 
 
     <script>     
-     var sign=document.getElementById('handler')
+     var sign=document.getElementById('draggable')
+     sign.style.left=0;
         var slider = {
             use: function(id) {
                 var self = this;
@@ -436,18 +437,21 @@
                 self.thumb = self.slider.querySelector('.handler');
                 sign.addEventListener('mousedown', function(e) {
                     if (e.button == 0) { // 判断点击左键
+                        let pos=parseInt(sign.style.left)+120;
                         self.mDown = true;
-                        self.beginX = e.clientX;
+                        self.beginX = pos;
                         self.positionX = e.offsetX;
-                        self.beginClientX = e.clientX;
+                        console.log(pos);
+                        self.beginClientX = pos;
                         self.sliderLong = parseInt(self.getStyle(self.slider, 'width'));
                         var per = parseInt(self.positionX / self.sliderLong * 100);
-                        self.bar.style.width = per + '%';
+                        // self.bar.style.width = per + '%';
                     }
                 });
                 document.addEventListener('mousemove', function(e) {
+                    let pos=parseInt(sign.style.left)+120;
                     if (self.mDown) {
-                        var moveX = e.clientX - self.beginClientX;
+                        var moveX = pos - self.beginClientX;
                         self.positionX = (self.beginX + moveX > self.sliderLong) ? self.sliderLong : (self.beginX + moveX < 0) ? 0 : self.beginX + moveX;
                         var per = parseInt(self.positionX / self.sliderLong * 100);
                         self.bar.style.width = per + '%';

@@ -5,54 +5,18 @@ window.onload = function () {
 }
 
 
+let container = document.getElementById('globe');
+let initGlobe=new InitGlobe(container,init);
 
-// 加载数据，地球
-if (!Detector.webgl) {
-    Detector.addGetWebGLMessage();
-} else {
-
-    var container = document.getElementById('globe');
-    var globe = new DAT.Globe(container);
-    var totalDay = 0;
-    let data = null;// 储存数据的全局变量
-
-    // 加载数据
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'globe/data.json', true);
-    xhr.onreadystatechange = function (e) {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-
-            data = JSON.parse(xhr.responseText);
-            window.data = data;
-            totalDay = data.length;
-            globe.addData(data[0][1], { format: 'magnitude' });
-            globe.createPoints();
-            globe.animate();
-
-            // 在数据加载完成后，启动时间轴，截图，
-            initDrag();
-            initShot();
-
-
-        }
-    };
-    xhr.send(null);
-
-    // 补间动画
-    var tweens = [];
-    TWEEN.start();
-    var settime = function (globe, t) {
-        return function () {
-            globe.resetData();
-            globe.addData(data[t][1], { format: 'magnitude' });
-            globe.createPoints();
-        };
-    };
+function init(){
+    initDrag(initGlobe);
+    initShot(initGlobe);
 }
 
 
 //时间轴代码
-function initDrag() {
+function initDrag(initGlobe) {
+    let totalDay=initGlobe.totalDay;
     var timetable = document.getElementById("draggable");
     var order = 0;
     // 最初的数据日期，如果修改需要更改
@@ -85,8 +49,7 @@ function initDrag() {
                 if (preOrder > totalDay) {
                     preOrder = totalDay;
                 }
-
-                settime(globe, order)();
+                initGlobe.settime(order);
                 let words = document.getElementById('draggable_p');
                 let dateNow = new Date(startDate);
                 dateNow.setDate(startDate.getDate() + order);
@@ -115,10 +78,10 @@ function countDown() {
 }
 
 
-function initShot() {
+function initShot(initGlobe) {
     function takeShot() {
         // console.log("in");
-        let imgUrl = globe.shot();
+        let imgUrl = initGlobe.globe.shot();
         let a = $("<a></a>").attr("href", imgUrl).attr("download", "img.png").appendTo("body");
         a[0].click();
         a.remove();

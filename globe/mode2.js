@@ -1,42 +1,9 @@
-if (!Detector.webgl) {
-    Detector.addGetWebGLMessage();
-} else {
+let container = document.getElementById('globe');
+let initGlobe=new InitGlobe(container,init);
 
-    var container = document.getElementById('globe');
-    var globe = new DAT.Globe(container);
-    var totalDay = 0;
-    let data = null;// 储存数据的全局变量
-
-    // 加载数据
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'globe/data.json', true);
-    xhr.onreadystatechange = function (e) {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-
-            data = JSON.parse(xhr.responseText);
-            window.data = data;
-            totalDay = data.length;
-            globe.addData(data[0][1], { format: 'magnitude' });
-            globe.createPoints();
-            globe.animate();
-
-            // 加载完成后使按钮有效
-            nextButton.addEventListener("click", buttonFunc(1,totalDay));
-            preButton.addEventListener("click", buttonFunc(-1,totalDay));
-        }
-    };
-    xhr.send(null);
-
-    // 补间动画
-    var tweens = [];
-    TWEEN.start();
-    var settime = function (globe, t) {
-        return function () {
-            globe.resetData();
-            globe.addData(data[t][1], { format: 'magnitude' });
-            globe.createPoints();
-        };
-    };
+function init() {
+    nextButton.addEventListener("click", buttonFunc(1, initGlobe.totalDay));
+    preButton.addEventListener("click", buttonFunc(-1, initGlobe.totalDay));
 }
 
 let returnButton = document.getElementById("returnButton");
@@ -81,7 +48,7 @@ function buttonFunc(next, totalDay) {
         
         
         // debugger;
-        settime(globe, timenow)();
+        initGlobe.settime(timenow);
     }
 }
 var countx = 2;

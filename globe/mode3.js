@@ -65,3 +65,12 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 })
 
+let container = document.getElementById('globe');
+let initGlobe=new InitGlobe(container,init);
+
+function init(){
+    let totalDay=initGlobe.totalDay;
+    initGlobe.settime(initGlobe.totalDay-1);
+    // 需要在球模型加载完成后执行的代码
+}
+

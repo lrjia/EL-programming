@@ -74,3 +74,17 @@ function init(){
     // 需要在球模型加载完成后执行的代码
 }
 
+var countx = 2;
+    function countDown() {
+        //写一个方法，显示倒数秒数  数到0后跳转页面  
+        //每执行一次，count减1
+        countx -= 1;
+        //count=0时，跳转页面
+        if (countx == 0) {
+            window.location.replace('index.html');
+            //window.location.href="index.html";
+            countx = 2;
+        }
+        //设定倒数秒数 
+        setTimeout("countDown()", 1000);
+    }

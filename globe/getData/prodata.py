@@ -1,11 +1,8 @@
-# @Author: 曾堃
-
-
-file_path = './csse_covid_19_time_series/time_series_covid19_confirmed_global.csv'
+file_path = './time_series_covid19_confirmed_global.csv'
 file_path1 = './first_data.txt'
 file_path2 = './second_data.txt'
 file_path3 = './sq_data.txt'
-file_path4 = '../dayData.json'
+file_path4 = 'dayData.json'
 
 
 # 合并数据(特判更改;将国家相同的数据相加)
@@ -22,6 +19,7 @@ def first_co():
                 lst[d] = lst[d].replace(",Taiwan*", "Taiwan,China")
                 lst[d] = lst[d].replace("US", "United States")
                 lst[d] = lst[d].replace("Vietnam", "Viet Nam")
+                lst[d] = lst[d].replace("Laos", "Lao")
 
             while i < len(lst) - 1:
                 data1 = lst[i].split("\n")[0].split(",")
@@ -101,7 +99,7 @@ def sort():
                     w.write("%.6f" % (int(lst[s[0]].split('\n')[0].split(',')[k]) / max_num))
                     for i in range(1, len(s)):
                         w.write(",%.6f" % (int(lst[s[i]].split('\n')[0].split(',')[k]) / max_num))
-                    if k == len(title)-1:
+                    if k == len(title) - 1:
                         w.write(']]')
                     else:
                         w.write("]],")

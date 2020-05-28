@@ -1,8 +1,8 @@
-file_path = './time_series_covid19_confirmed_global.csv'
+file_path = './csse_covid_19_time_series/time_series_covid19_confirmed_global.csv'
 file_path1 = './first_data.txt'
 file_path2 = './second_data.txt'
 file_path3 = './sq_data.txt'
-file_path4 = 'dayData.json'
+file_path4 = '../dayData.json'
 
 
 # 合并数据(特判更改;将国家相同的数据相加)

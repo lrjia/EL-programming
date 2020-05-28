@@ -20,6 +20,8 @@ def first_co():
                 lst[d] = lst[d].replace("US", "United States")
                 lst[d] = lst[d].replace("Vietnam", "Viet Nam")
                 lst[d] = lst[d].replace("Laos", "Lao")
+                lst[d] = lst[d].replace("Czechia", "Czech Republic")
+                lst[d] = lst[d].replace("North Macedonia", "Macedonia")
 
             while i < len(lst) - 1:
                 data1 = lst[i].split("\n")[0].split(",")

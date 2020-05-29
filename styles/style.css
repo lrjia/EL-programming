@@ -170,15 +170,19 @@ p span:nth-child(4)
   }
 
 .header .canvaszz{  /*将星空设为背景图片，调整不透明度使显现宇宙特效*/
-  width:100%;
-  background-image: url(images/sky.jpg);
-  height:890px;
+    width: 100%;
+    height: 100%;
+    background-size:100% 100%;
+    overflow: hidden;
+    background: url(images/sky.jpg);
   position:absolute;
   z-index:10;
     filter:alpha(opacity=30);  
         -moz-opacity:0.3;  
         -khtml-opacity: 0.3;  
         opacity: 0.3;
+
+
   }
 
   

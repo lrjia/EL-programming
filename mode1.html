@@ -127,7 +127,7 @@
     background-color: #FF4200;
     float: right; 
     position: relative; left: 10px; top: -10px; 
-    text-size-adjust: 1em;
+    /* text-size-adjust: 1em; */
 }
 </style>
 </head>
@@ -136,6 +136,7 @@
     oncontextmenu="window.event.returnValue=false">
     <p>test line</p>
     <p id="load">加载中。。。。。。。。</p>
+
     <!-- 球模型 -->
     <div style="position:absolute;left:0;top:0;z-index: 800;" id="globe"></div>
 
@@ -397,25 +398,14 @@
     <!-- 截图功能的按钮 -->
     <div style="position: absolute;z-index: 1500;">
         <button type="button" class="shotBtn" id="getShot">
-            <label>截图</label>    
-        <!-- <div>
-            <label for="stratDate">起始日期:</label>
-            <input type="text" id="stratDate" value="2020-02-06">
-        </div>
-        <div>
-            <label for="endDate">结束日期:</label>
-            <input type="text" id="endDate" value="2020-02-06">
-        </div> -->
-    
-    
+            <label>截图</label>
+        </button>
     </div>
+
     <div style="position: absolute;  top: 310px;color: antiquewhite;">
           <p>拖动旗杆改变时间</p>
     </div>
   
-
-
-
     <!-- 时间轴 -->
     <div id="bottom">
         <div class="ui-draggable" id="draggable">
@@ -425,60 +415,13 @@
         <div id="timeline">
             <div id="demo">
                 <div class="progress">
-                    <div class="progress-bar" id="">
+                    <div class="progress-bar">
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 
-
-    <script>     
-     var sign=document.getElementById('draggable')
-     sign.style.left=0;
-        var slider = {
-            use: function(id) {
-                var self = this;
-                self.slider = document.getElementById(id);
-                self.bar = self.slider.querySelector('.progress-bar');
-                self.thumb = self.slider.querySelector('.handler');
-                sign.addEventListener('mousedown', function(e) {
-                    if (e.button == 0) { // 判断点击左键
-                        let pos=parseInt(sign.style.left)+120;
-                        self.mDown = true;
-                        self.beginX = pos;
-                        self.positionX = e.offsetX;
-                        console.log(pos);
-                        self.beginClientX = pos;
-                        self.sliderLong = parseInt(self.getStyle(self.slider, 'width'));
-                        var per = parseInt(self.positionX / self.sliderLong * 100);
-                        // self.bar.style.width = per + '%';
-                    }
-                });
-                document.addEventListener('mousemove', function(e) {
-                    let pos=parseInt(sign.style.left)+120;
-                    if (self.mDown) {
-                        var moveX = pos - self.beginClientX;
-                        self.positionX = (self.beginX + moveX > self.sliderLong) ? self.sliderLong : (self.beginX + moveX < 0) ? 0 : self.beginX + moveX;
-                        var per = parseInt(self.positionX / self.sliderLong * 100);
-                        self.bar.style.width = per + '%';
-                    }
-                });
-                document.addEventListener('mouseup', function(e) {
-                    if (e.button == 0) { 
-                        self.mDown = false;
-                    }
-                });
-            },
-            getStyle: function(obj,styleName){ // 获取元素样式的方法
-                if(obj.currentStyle){
-                    return obj.currentStyle[styleName];
-                }else{
-                    return getComputedStyle(obj,null)[styleName];
-                }
-            }
-        };
-        slider.use('demo');
-    </script>
     <!-- partial -->
     <script src="scripts/TweenMax.min.js"></script>
     <script src="scripts/MorphSVGPlugin.min.js"></script>
@@ -489,19 +432,10 @@
     <script src="globe/third-party/jquery-ui.js"></script>
 
     <!-- 球模型 -->
-    <script src="globe/third-party/Detector.js"></script>
     <script src="globe/third-party/three.min.js" ></script>
-    <script src="globe/third-party/Tween.js"></script>
     <script src="globe/globe.js"></script>
-    
     <script src="globe/InitGlobe.js"></script>
     <script src="globe/mode1.js"></script>
-    
-
-    <!-- 时间轴 -->
-    <script src="globe/third-party/jquery-1.9.1.js"></script>
-    <script src="globe/third-party/jquery-ui.js"></script>
-
 </body>
 
 </html>

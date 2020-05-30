@@ -89,3 +89,51 @@ function initShot(initGlobe) {
     let shotButton = document.getElementById("getShot");
     shotButton.addEventListener("click", takeShot);
 }
+
+
+//时间轴进度条
+var sign = document.getElementById('draggable')
+sign.style.left = 0;
+var slider = {
+    use: function (id) {
+        var self = this;
+        self.slider = document.getElementById(id);
+        self.bar = self.slider.querySelector('.progress-bar');
+        self.thumb = self.slider.querySelector('.handler');
+        sign.addEventListener('mousedown', function (e) {
+            if (e.button == 0) { // 判断点击左键
+                let pos = parseInt(sign.style.left) + 120;
+                self.mDown = true;
+                self.beginX = pos;
+                self.positionX = e.offsetX;
+                console.log(pos);
+                self.beginClientX = pos;
+                self.sliderLong = parseInt(self.getStyle(self.slider, 'width'));
+                var per = parseInt(self.positionX / self.sliderLong * 100);
+                // self.bar.style.width = per + '%';
+            }
+        });
+        document.addEventListener('mousemove', function (e) {
+            let pos = parseInt(sign.style.left) + 120;
+            if (self.mDown) {
+                var moveX = pos - self.beginClientX;
+                self.positionX = (self.beginX + moveX > self.sliderLong) ? self.sliderLong : (self.beginX + moveX < 0) ? 0 : self.beginX + moveX;
+                var per = parseInt(self.positionX / self.sliderLong * 100);
+                self.bar.style.width = per + '%';
+            }
+        });
+        document.addEventListener('mouseup', function (e) {
+            if (e.button == 0) {
+                self.mDown = false;
+            }
+        });
+    },
+    getStyle: function (obj, styleName) { // 获取元素样式的方法
+        if (obj.currentStyle) {
+            return obj.currentStyle[styleName];
+        } else {
+            return getComputedStyle(obj, null)[styleName];
+        }
+    }
+};
+slider.use('demo');

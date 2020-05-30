@@ -65,3 +65,8 @@ var countx = 2;
         //设定倒数秒数 
         setTimeout("countDown()", 1000);
     }
+
+
+function play() {
+    document.getElementById("media").play();
+}
